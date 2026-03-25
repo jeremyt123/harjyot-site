@@ -126,7 +126,7 @@
 
     <section class="hero">
       <div>
-        <h1>HARJYOT SOHAL</h1>
+        <h1 class="glitch" data-text="HARJYOT SOHAL">HARJYOT SOHAL</h1>
         <p>Video Editor • Motion Graphics</p>
         <p>
           I am an artist specializing in storytelling that blends editorial
@@ -140,9 +140,159 @@
         <p></p>
       </div>
     </section>
+    <style>
+      /* NOTICEABLE BUT CLEAN ORANGE GLITCH */
+      .glitch {
+        position: relative;
+        font-family: "Orbitron", sans-serif;
+        font-size: 3.5rem;
+        color: #ff7a00;
+        letter-spacing: 2px;
+        text-transform: uppercase;
 
+        text-shadow: 0 0 10px rgba(255, 122, 0, 0.95),
+          0 0 28px rgba(255, 122, 0, 0.7);
+
+        animation: flicker 1.8s infinite;
+      }
+
+      /* layered copies */
+      .glitch::before,
+      .glitch::after {
+        content: attr(data-text);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        color: #ff7a00;
+        opacity: 0.35;
+      }
+
+      /* more visible shift */
+      .glitch::before {
+        transform: translateX(-2px);
+        animation: glitchShift 2s infinite;
+      }
+
+      .glitch::after {
+        transform: translateX(2px);
+        animation: glitchShift 2.4s infinite reverse;
+      }
+
+      /* stronger neon flicker */
+      @keyframes flicker {
+        0%,
+        16%,
+        20%,
+        24%,
+        52%,
+        56%,
+        100% {
+          opacity: 1;
+        }
+        18%,
+        22%,
+        54% {
+          opacity: 0.8;
+        }
+      }
+
+      /* more noticeable movement */
+      @keyframes glitchShift {
+        0% {
+          transform: translateX(0);
+        }
+        15% {
+          transform: translateX(-2px);
+        }
+        30% {
+          transform: translateX(2px);
+        }
+        45% {
+          transform: translateX(-1.5px);
+        }
+        60% {
+          transform: translateX(1.5px);
+        }
+        75% {
+          transform: translateX(-1px);
+        }
+        90% {
+          transform: translateX(1px);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      /* subtle glitch "pulse" every few seconds */
+      .glitch {
+        animation: flicker 1.8s infinite, glitchPulse 6s infinite;
+      }
+
+      @keyframes glitchPulse {
+        0%,
+        92%,
+        100% {
+          letter-spacing: 2px;
+        }
+        94% {
+          letter-spacing: 4px;
+        }
+        96% {
+          letter-spacing: 1px;
+        }
+      }
+
+      /* hover = stronger glow, still clean */
+      .glitch:hover {
+        text-shadow: 0 0 15px rgba(255, 122, 0, 1),
+          0 0 40px rgba(255, 122, 0, 0.9), 0 0 70px rgba(255, 122, 0, 0.7);
+      }
+
+      /* Hover effect for YouTube videos */
+      .video {
+        border: 3px solid rgba(255, 122, 0, 0.2);
+        border-radius: 12px;
+        overflow: hidden;
+        background: #0c0c0c;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .video:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 40px rgba(255, 122, 0, 0.7);
+        border-color: #ff7a00;
+      }
+
+      .video iframe {
+        width: 100%;
+        height: 200px;
+        border: 0;
+        border-radius: 8px;
+      }
+
+      .video h3 {
+        padding: 12px;
+        color: #ff7a00;
+        text-shadow: 0 0 10px rgba(255, 122, 0, 0.8),
+          0 0 20px rgba(255, 122, 0, 0.5);
+      }
+    </style>
     <section id="work" class="section">
-      <h2>Featured Work</h2>
+      <h2
+        style="
+          font-family: 'Orbitron', sans-serif;
+          font-size: 2.5rem;
+          color: #ff7a00;
+          text-align: center;
+          text-shadow: 0 0 10px rgba(255, 122, 0, 0.8),
+            0 0 30px rgba(255, 122, 0, 0.5), 0 0 60px rgba(255, 122, 0, 0.3);
+          margin-bottom: 30px;
+        "
+      >
+        Featured Videos
+      </h2>
 
       <div class="grid">
         <!-- VIDEO 1 -->
@@ -200,18 +350,145 @@
         </div>
       </div>
 
-<section class="hero-video">
-  <iframe
-    width="100%"
-    height="500"
-    src="https://www.youtube.com/embed/U_Ax2DnKPhk?autoplay=1&mute=1&loop=1&playlist=U_Ax2DnKPhk"
-    title="Featured Video"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen
-  >
-  </iframe>
-</section>
+      <!-- TikTok Video Section (iframe method) -->
+      <section
+        id="tiktok-videos"
+        style="max-width: 1100px; margin: 60px auto; padding: 0 20px"
+      >
+        <h2
+          style="
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: #ff7a00;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(255, 122, 0, 0.8),
+              0 0 30px rgba(255, 122, 0, 0.5);
+            margin-bottom: 30px;
+          "
+        >
+          Featured TikToks
+        </h2>
+
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            justify-items: center;
+          "
+        >
+          <!-- Video 1 -->
+          <div class="tiktok-wrapper">
+            <iframe
+              src="https://www.tiktok.com/embed/7599327649525288212"
+              width="330"
+              height="580"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <!-- Video 2 -->
+          <div class="tiktok-wrapper">
+            <iframe
+              src="https://www.tiktok.com/embed/7615330939341737237"
+              width="330"
+              height="580"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <!-- Video 3 -->
+          <div class="tiktok-wrapper">
+            <iframe
+              src="https://www.tiktok.com/embed/7512559727805533470"
+              width="330"
+              height="580"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <!-- Video 4 -->
+          <div class="tiktok-wrapper">
+            <iframe
+              src="https://www.tiktok.com/embed/7491012560657894702"
+              width="330"
+              height="580"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <!-- Video 5 -->
+          <div class="tiktok-wrapper">
+            <iframe
+              src="https://www.tiktok.com/embed/7593384766053911828"
+              width="330"
+              height="580"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <!-- Video 6 -->
+          <div class="tiktok-wrapper">
+            <iframe
+              src="https://www.tiktok.com/embed/7609755936412192021"
+              width="330"
+              height="580"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- Glowing border style -->
+      <style>
+        .tiktok-wrapper {
+          border: 3px solid #ff7a00;
+          border-radius: 12px;
+          box-shadow: 0 0 25px rgba(255, 122, 0, 0.4);
+          overflow: hidden;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          background: #000;
+        }
+
+        .tiktok-wrapper:hover {
+          transform: scale(1.05);
+          box-shadow: 0 0 40px rgba(255, 122, 0, 0.7);
+        }
+
+        .tiktok-wrapper iframe {
+          border-radius: 8px;
+        }
+      </style>
+      <h2
+        style="
+          font-family: 'Orbitron', sans-serif;
+          font-size: 2.5rem;
+          color: #ff7a00;
+          text-align: center;
+          text-shadow: 0 0 10px rgba(255, 122, 0, 0.8),
+            0 0 30px rgba(255, 122, 0, 0.5), 0 0 60px rgba(255, 122, 0, 0.3);
+          margin-bottom: 30px;
+        "
+      >
+        Motion Grapics
+      </h2>
+      <section class="hero-video">
+        <iframe
+          width="100%"
+          height="500"
+          src="https://www.youtube.com/embed/U_Ax2DnKPhk?autoplay=1&mute=1&loop=1&playlist=U_Ax2DnKPhk"
+          title="Featured Video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        >
+        </iframe>
+      </section>
 
       <section class="hero-video">
         <iframe
@@ -227,9 +504,46 @@
       </section>
     </section>
 
-    <section id="contact" class="section">
-      <h2>Contact</h2>
-      <p>Email: joeylahosmedia@gmail.com</p>
+    <section id="contact" class="section" style="text-align: center">
+      <h2
+        style="
+          font-family: 'Orbitron', sans-serif;
+          font-size: 2.5rem;
+          color: #ff7a00;
+          text-shadow: 0 0 10px rgba(255, 122, 0, 0.8),
+            0 0 30px rgba(255, 122, 0, 0.5), 0 0 60px rgba(255, 122, 0, 0.3);
+          margin-bottom: 20px;
+        "
+      >
+        Contact
+      </h2>
+
+      <p
+        style="
+          font-family: 'Orbitron', sans-serif;
+          font-size: 1.2rem;
+          color: #ff7a00;
+          text-shadow: 0 0 5px rgba(255, 122, 0, 0.8),
+            0 0 10px rgba(255, 122, 0, 0.6), 0 0 20px rgba(255, 122, 0, 0.4);
+          transition: all 0.3s ease;
+        "
+      >
+        Email:
+        <a
+          href="mailto:joeylahosmedia@gmail.com"
+          style="
+            color: #ff7a00;
+            text-decoration: none;
+            text-shadow: 0 0 5px rgba(255, 122, 0, 0.8),
+              0 0 10px rgba(255, 122, 0, 0.6), 0 0 20px rgba(255, 122, 0, 0.4);
+            transition: all 0.3s ease;
+          "
+          onmouseover="this.style.textShadow='0 0 10px rgba(255,122,0,1), 0 0 20px rgba(255,122,0,0.8), 0 0 40px rgba(255,122,0,0.6)'; this.style.transform='scale(1.05)';"
+          onmouseout="this.style.textShadow='0 0 5px rgba(255,122,0,0.8), 0 0 10px rgba(255,122,0,0.6), 0 0 20px rgba(255,122,0,0.4)'; this.style.transform='scale(1)';"
+        >
+          joeylahosmedia@gmail.com
+        </a>
+      </p>
     </section>
 
     <footer>© 2026 Harjyot Sohal</footer>
