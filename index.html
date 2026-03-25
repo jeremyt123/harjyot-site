@@ -1,211 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Joey Lahos Media</title>
-    <!-- Bootstrap -->
-    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
-  <script type="text/javascript">
-function MM_swapImgRestore() { //v3.0
-  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
-}
-function MM_preloadImages() { //v3.0
-  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
-    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
-    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
-}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Harjyot Sohal</title>
 
-function MM_findObj(n, d) { //v4.01
-  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
-    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
-  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
-  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
-  if(!x && d.getElementById) x=d.getElementById(n); return x;
-}
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
 
-function MM_swapImage() { //v3.0
-  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
-   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
-}
-  </script>
+    <style>
+      body {
+        margin: 0;
+        background: #050505;
+        color: #eee;
+        font-family: "Inter", sans-serif;
+      }
+
+      /* NAV */
+      header {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 40px;
+        border-bottom: 1px solid rgba(255, 120, 0, 0.2);
+      }
+
+      .logo {
+        font-family: "Orbitron";
+        color: #ff7a00;
+      }
+
+      nav a {
+        color: #aaa;
+        margin-left: 20px;
+        text-decoration: none;
+      }
+      nav a:hover {
+        color: #ff7a00;
+      }
+
+      /* HERO */
+      .hero {
+        height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        /* background image + dark overlay */
+        background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)),
+          url("https://images.unsplash.com/photo-1481414981591-5732874c7193?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+        background-size: cover;
+        background-position: center;
+      }
+
+      .hero-content h1 {
+        font-family: "Orbitron", sans-serif;
+        font-size: 3.5rem;
+        color: #ff7a00; /* bright orange */
+        text-shadow: 0 0 10px rgba(255, 122, 0, 0.8),
+          0 0 30px rgba(255, 122, 0, 0.5), 0 0 60px rgba(255, 122, 0, 0.3);
+      }
+
+      .hero-content p {
+        color: #ccc;
+        margin-top: 10px;
+        font-size: 1.2rem;
+      }
+
+      .hero h1 {
+        font-family: "Orbitron";
+        font-size: 3rem;
+        color: #ff7a00;
+        text-shadow: 0 0 20px rgba(255, 122, 0, 0.6);
+      }
+
+      /* SECTIONS */
+      .section {
+        max-width: 1100px;
+        margin: auto;
+        padding: 60px 20px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+      }
+
+      /* VIDEO CARDS */
+      .video {
+        border: 1px solid rgba(255, 122, 0, 0.2);
+        border-radius: 8px;
+        overflow: hidden;
+        background: #0c0c0c;
+      }
+
+      .video iframe {
+        width: 100%;
+        height: 200px;
+        border: 0;
+      }
+
+      .video h3 {
+        padding: 12px;
+      }
+
+      footer {
+        text-align: center;
+        padding: 30px;
+        color: #777;
+      }
+    </style>
   </head>
-  <body onLoad="MM_preloadImages('images/WHATLOGOFACESLEFT2.png')">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="index.html">Joey Lahos Media&nbsp;</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About&nbsp;</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Portfolio&nbsp; </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="Premiere.html">Video Editing</a>
-              <a class="dropdown-item" href="After Effects.html">Motion Graphics</a>
-              <a class="dropdown-item" href="Photoshop.html">Graphic Design & More</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link enabled" href="more.html">More&nbsp;</a>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-        </form>
-      </div>
-  </nav>
-    <section>
-      <div class="jumbotron text-center mt-2">
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <h1>Joey Lahos Media</h1>
-              <p>Welcome to my creative hub, where captivating stories come to life through expertly crafted <strong>video editing</strong> and <strong>motion graphics</strong>. Elevate your brand, captivate your audience, and bring your vision to life.&nbsp; Let's transform your ideas into unforgettable visual experiences.</p>
-              <p><a class="btn btn-primary btn-lg" href="about.html" role="button">About Me »</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div class="row">
-          <div class="col-12 text-center">
-            <h1>Creative Design Services for Media&nbsp;</h1>
-            <p>&nbsp;Crafting captivating visuals: video editing, motion graphics, graphic design. Elevate your brand's story.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <div class="container mt-2">
-        <div class="row">
-          <div class="col-md-4 col-12">
-            <ul class="list-unstyled">
-              <li class="media"> <a href="Premiere.html"><img src="images/design/PR.png" width="35" height="35" alt=""/></a>
-                <div class="media-body">
-                  <h5 class="mt-0 mb-1">&nbsp;Video Editing</h5>
-                  Proficient in Adobe Premiere, I bring precision and creativity to video editing, ensuring seamless transitions and polished final products.
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-4 col-12">
-            <ul class="list-unstyled">
-              <li class="media"> <a href="After Effects.html"><img src="images/design/AE.png" width="35" height="35" alt=""/></a>
-                <div class="media-body">
-                  <h5 class="mt-0 mb-1">&nbsp;Motion Graphics</h5>
-                  Proficient in Adobe After Effects, crafting captivating motion graphics, bringing dynamic visual elements to life with seamless animation and creativity.
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-4 col-12">
-            <ul class="list-unstyled">
-              <li class="media"> <a href="Photoshop.html"><img src="images/design/ps.png" width="35" height="35" alt=""/></a>
-                <div class="media-body">
-                  <h5 class="mt-0 mb-1">&nbsp;Graphic Design</h5>
-                  Proficient in Adobe Photoshop, produce captivating graphic designs, ensuring each creation reflects your brand's identity with creativity and precision.
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section>
-      <div class="container">
-        <div class="row">
-          <div class="col-12 text-center">
-            <h2>Latest Work</h2>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 col-12 text-center">
-            <video width="480" height="270" controls="controls" autoplay muted >
-              <source src="images/LAL BRB.mp4" type="video/mp4">
-            </video>
-            <h4>Be Right Back! Stream Overlay for Ownersbox&nbsp;</h4>
-            <h6>Used in the Twitch.tv/OwnersboxSports LinesAtLunch Livestreams&nbsp;&nbsp;</h6>
-          </div>
-          <div class="col-md-6 col-12 text-center mt-md-0 mt-2">
-<video width="480" height="270" controls="controls" autoplay muted >
-  <source src="images/6.mp4" type="video/mp4">
-</video>
-<h4>Custom Video Game Pause Screen&nbsp;</h4>
-            <h6>A side project that replicates a pause screen from Grand Theft Auto: Vice City in a different branding.&nbsp;</h6>
-          </div>
-        </div>
-        <div class="row mt-2">
-          <div class="col-md-3 col-6"><a href="https://www.tiktok.com/@ownersbox/video/7311456027621330182"><img class="img-fluid float-right rounded" src="images/WHATLOGOFACESLEFT.png" alt=""></a><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image14','','images/WHATLOGOFACESLEFT2.png',1)"></a></div>
-          <div class="col-md-3 col-6"><a href="https://www.tiktok.com/@ownersbox/video/7322960279883517189"><img class="img-fluid float-left rounded" src="images/wildcard afc.png" alt=""></a></div>
-          <div class="col-md-3 col-6 mt-md-0 mt-1"><a href="https://www.tiktok.com/@linesatlunch/video/7364820189126364459"><img class="img-fluid float-right rounded" src="images/design/bettrends.png" alt=""></a></div>
-          <div class="col-md-3 col-6 mt-md-0 mt-1"><a href="https://www.tiktok.com/@linesatlunch/video/7366651790982384942"><img class="img-fluid float-left rounded" src="images/design/oilcanucks.png" alt=""></a></div>
-        </div>
-        <hr>
-        <div class="row">
-<div class="col-md-3 col-6 col-xl-6"></div>
-<div class="col-md-3 col-6 mt-md-0 mt-1 offset-xl-0 col-xl-6"></div>
-        </div>
-      </div>
-    </section>
-    <hr>
-    <section>
-      <div class="container">
-        <div class="row">
-          <div class="col-12 text-center">
-            <h1>Client Satisfaction Guarenteed</h1>
-            <p>Dedicated to delivering quality final products promptly, I prioritize meeting deadlines, ensuring clients consistently receive exceptional work, reflective of their vision and expectations.</p>
-<a href="portfolio.html">            <button type="button" class="btn btn-success">View some of my Work!&nbsp;</button></a>
 
-          </div>
+  <body>
+    <header>
+      <div class="logo">HARJYOT</div>
+      <nav>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h1>HARJYOT SOHAL</h1>
+        <p>Video Editor • Motion Graphics</p>
+      </div>
+    </section>
+
+    <section id="work" class="section">
+      <h2>Featured Work</h2>
+
+      <div class="grid">
+        <!-- VIDEO 1 -->
+        <div class="video">
+          <iframe
+            src="https://www.youtube.com/embed/fTzti0GLrwo"
+            allowfullscreen
+          ></iframe>
+          <h3>9 Innings, 9 Bets Challenge</h3>
+        </div>
+
+        <!-- VIDEO 2 -->
+        <div class="video">
+          <iframe
+            src="https://www.youtube.com/embed/l9CmlPzra7o"
+            allowfullscreen
+          ></iframe>
+          <h3>We Watched The College Football Team With No Fans</h3>
+        </div>
+
+        <!-- VIDEO 3 -->
+        <div class="video">
+          <iframe
+            src="https://www.youtube.com/embed/tkYS3cg0fNc"
+            allowfullscreen
+          ></iframe>
+          <h3>Only True Baseball Fans Can ACE This MLB Wordle</h3>
         </div>
       </div>
     </section>
-    <hr>
-    <div class="section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 col-12 col-xl-6">
-            <h3 class="text-center">HARJYOT SOHAL&nbsp;</h3>
-            <p>I graduated from Fanshawe College Alumni, Broadcasting Film and Television. I currently work as an Assistant Video Editor at Ownersbox.</p>
-          </div>
-          <div class="col-md-4 col-12 offset-xl-0 col-xl-6">
-            <h3 class="text-center">GET IN TOUCH</h3>
-            <address class="text-center">
-              <strong>Joey Lahos Media</strong><br>
-            joeylahosmedia@gmail.com
-          </address>
-          </div>
-          <div class="col-md-4 col-12">
-            <form>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    <hr>
-    <footer class="text-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <p>Copyright Joey Lahos Media. All rights reserved.</p>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery-3.4.1.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap-4.4.1.js"></script>
-</body>
+
+    <section id="contact" class="section">
+      <h2>Contact</h2>
+      <p>Email: joeylahosmedia@gmail.com</p>
+    </section>
+
+    <footer>© 2026 Harjyot Sohal</footer>
+  </body>
 </html>
