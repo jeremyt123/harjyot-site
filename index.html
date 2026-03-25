@@ -125,10 +125,10 @@
     </header>
 
     <section class="hero">
-      <div>
+      <div class="hero-box">
         <h1 class="glitch" data-text="HARJYOT SOHAL">HARJYOT SOHAL</h1>
-        <p>Video Editor • Motion Graphics</p>
-        <p>
+        <p class="hero-sub">Video Editor • Motion Graphics</p>
+        <p class="hero-desc">
           I am an artist specializing in storytelling that blends editorial
           precision with striking visuals. I create engaging content across
           music videos, documentaries, ads, and digital media. Skilled in Adobe
@@ -137,10 +137,45 @@
           and captures attention. I thrive on turning concepts into cinematic
           experiences that leave an impact.
         </p>
-        <p></p>
       </div>
     </section>
     <style>
+      /* HERO CONTAINER */
+      .hero-box {
+        background: rgba(0, 0, 0, 0.65);
+        padding: 40px;
+        border-radius: 12px;
+        max-width: 700px;
+        backdrop-filter: blur(8px);
+
+        border: 1px solid rgba(255, 122, 0, 0.2);
+        box-shadow: 0 0 20px rgba(255, 122, 0, 0.15),
+          inset 0 0 20px rgba(255, 122, 0, 0.05);
+
+        text-align: center;
+      }
+
+      /* SUBTEXT */
+      .hero-sub {
+        color: #ff7a00;
+        margin-top: 10px;
+        font-size: 1.2rem;
+        text-shadow: 0 0 10px rgba(255, 122, 0, 0.5);
+      }
+
+      /* DESCRIPTION */
+      .hero-desc {
+        color: #ccc;
+        margin-top: 15px;
+        line-height: 1.6;
+      }
+
+      /* HOVER GLOW */
+      .hero-box:hover {
+        box-shadow: 0 0 30px rgba(255, 122, 0, 0.25),
+          inset 0 0 25px rgba(255, 122, 0, 0.08);
+      }
+
       /* NOTICEABLE BUT CLEAN ORANGE GLITCH */
       .glitch {
         position: relative;
@@ -246,8 +281,8 @@
 
       /* hover = stronger glow, still clean */
       .glitch:hover {
-        text-shadow: 0 0 15px rgba(255, 122, 0, 1),
-          0 0 40px rgba(255, 122, 0, 0.9), 0 0 70px rgba(255, 122, 0, 0.7);
+        text-shadow: 0 0 8px rgba(255, 122, 0, 0.8),
+          0 0 16px rgba(255, 122, 0, 0.5);
       }
 
       /* Hover effect for YouTube videos */
@@ -424,7 +459,7 @@
           <!-- Video 5 -->
           <div class="tiktok-wrapper">
             <iframe
-              src="https://www.tiktok.com/embed/7593384766053911828"
+              src="https://www.tiktok.com/embed/7616054102325267732"
               width="330"
               height="580"
               frameborder="0"
