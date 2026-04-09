@@ -125,14 +125,209 @@
     </header>
 
     <section class="hero">
-      <div>
-        <h1>HARJYOT SOHAL</h1>
-        <p>Video Editor • Motion Graphics</p>
+      <div class="hero-box">
+        <h1 class="glitch" data-text="HARJYOT SOHAL">HARJYOT SOHAL</h1>
+        <p class="hero-sub">Video Editor • Motion Graphics</p>
+        <p class="hero-desc">
+          I am an artist specializing in storytelling that blends editorial
+          precision with striking visuals. I create engaging content across
+          music videos, documentaries, ads, and digital media. Skilled in Adobe
+          After Effects, Premiere Pro, and Photoshop, I focus on pacing,
+          transitions, and polished graphics to deliver content that resonates
+          and captures attention. I thrive on turning concepts into cinematic
+          experiences that leave an impact.
+        </p>
       </div>
     </section>
+    <style>
+      /* HERO CONTAINER */
+      .hero-box {
+        background: rgba(0, 0, 0, 0.65);
+        padding: 40px;
+        border-radius: 12px;
+        max-width: 700px;
+        backdrop-filter: blur(8px);
 
+        border: 1px solid rgba(255, 122, 0, 0.2);
+        box-shadow: 0 0 20px rgba(255, 122, 0, 0.15),
+          inset 0 0 20px rgba(255, 122, 0, 0.05);
+
+        text-align: center;
+      }
+
+      /* SUBTEXT */
+      .hero-sub {
+        color: #ff7a00;
+        margin-top: 10px;
+        font-size: 1.2rem;
+        text-shadow: 0 0 10px rgba(255, 122, 0, 0.5);
+      }
+
+      /* DESCRIPTION */
+      .hero-desc {
+        color: #ccc;
+        margin-top: 15px;
+        line-height: 1.6;
+      }
+
+      /* HOVER GLOW */
+      .hero-box:hover {
+        box-shadow: 0 0 30px rgba(255, 122, 0, 0.25),
+          inset 0 0 25px rgba(255, 122, 0, 0.08);
+      }
+
+      /* NOTICEABLE BUT CLEAN ORANGE GLITCH */
+      .glitch {
+        position: relative;
+        font-family: "Orbitron", sans-serif;
+        font-size: 3.5rem;
+        color: #ff7a00;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+
+        text-shadow: 0 0 10px rgba(255, 122, 0, 0.95),
+          0 0 28px rgba(255, 122, 0, 0.7);
+
+        animation: flicker 1.8s infinite;
+      }
+
+      /* layered copies */
+      .glitch::before,
+      .glitch::after {
+        content: attr(data-text);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        color: #ff7a00;
+        opacity: 0.35;
+      }
+
+      /* more visible shift */
+      .glitch::before {
+        transform: translateX(-2px);
+        animation: glitchShift 2s infinite;
+      }
+
+      .glitch::after {
+        transform: translateX(2px);
+        animation: glitchShift 2.4s infinite reverse;
+      }
+
+      /* stronger neon flicker */
+      @keyframes flicker {
+        0%,
+        16%,
+        20%,
+        24%,
+        52%,
+        56%,
+        100% {
+          opacity: 1;
+        }
+        18%,
+        22%,
+        54% {
+          opacity: 0.8;
+        }
+      }
+
+      /* more noticeable movement */
+      @keyframes glitchShift {
+        0% {
+          transform: translateX(0);
+        }
+        15% {
+          transform: translateX(-2px);
+        }
+        30% {
+          transform: translateX(2px);
+        }
+        45% {
+          transform: translateX(-1.5px);
+        }
+        60% {
+          transform: translateX(1.5px);
+        }
+        75% {
+          transform: translateX(-1px);
+        }
+        90% {
+          transform: translateX(1px);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      /* subtle glitch "pulse" every few seconds */
+      .glitch {
+        animation: flicker 1.8s infinite, glitchPulse 6s infinite;
+      }
+
+      @keyframes glitchPulse {
+        0%,
+        92%,
+        100% {
+          letter-spacing: 2px;
+        }
+        94% {
+          letter-spacing: 4px;
+        }
+        96% {
+          letter-spacing: 1px;
+        }
+      }
+
+      /* hover = stronger glow, still clean */
+      .glitch:hover {
+        text-shadow: 0 0 8px rgba(255, 122, 0, 0.8),
+          0 0 16px rgba(255, 122, 0, 0.5);
+      }
+
+      /* Hover effect for YouTube videos */
+      .video {
+        border: 3px solid rgba(255, 122, 0, 0.2);
+        border-radius: 12px;
+        overflow: hidden;
+        background: #0c0c0c;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .video:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 40px rgba(255, 122, 0, 0.7);
+        border-color: #ff7a00;
+      }
+
+      .video iframe {
+        width: 100%;
+        height: 200px;
+        border: 0;
+        border-radius: 8px;
+      }
+
+      .video h3 {
+        padding: 12px;
+        color: #ff7a00;
+        text-shadow: 0 0 10px rgba(255, 122, 0, 0.8),
+          0 0 20px rgba(255, 122, 0, 0.5);
+      }
+    </style>
     <section id="work" class="section">
-      <h2>Featured Work</h2>
+      <h2
+        style="
+          font-family: 'Orbitron', sans-serif;
+          font-size: 2.5rem;
+          color: #ff7a00;
+          text-align: center;
+          text-shadow: 0 0 10px rgba(255, 122, 0, 0.8),
+            0 0 30px rgba(255, 122, 0, 0.5), 0 0 60px rgba(255, 122, 0, 0.3);
+          margin-bottom: 30px;
+        "
+      >
+        Featured Videos
+      </h2>
 
       <div class="grid">
         <!-- VIDEO 1 -->
@@ -156,18 +351,781 @@
         <!-- VIDEO 3 -->
         <div class="video">
           <iframe
+            src="https://www.youtube.com/embed/IPoisXMFPpA"
+            allowfullscreen
+          ></iframe>
+          <h3>We Flew To Seattle To Take Over T-Mobile Park</h3>
+        </div>
+
+        <!-- VIDEO 4 -->
+        <div class="video">
+          <iframe
+            src="https://www.youtube.com/embed/eR_E4AegVH8"
+            allowfullscreen
+          ></iframe>
+          <h3>We Watched College Football's Most Underrated Rivalry</h3>
+        </div>
+
+        <!-- VIDEO 5 -->
+        <div class="video">
+          <iframe
+            src="https://www.youtube.com/embed/XptxfQ3l-Ho"
+            allowfullscreen
+          ></iframe>
+          <h3>Dave Musket (A Marine's Story) - Short Documentary</h3>
+        </div>
+
+        <!-- VIDEO 6 -->
+        <div class="video">
+          <iframe
             src="https://www.youtube.com/embed/tkYS3cg0fNc"
             allowfullscreen
           ></iframe>
           <h3>Only True Baseball Fans Can ACE This MLB Wordle</h3>
         </div>
       </div>
+
+      <!-- TikTok Video Section (iframe method) -->
+      <section
+        id="tiktok-videos"
+        style="max-width: 1100px; margin: 60px auto; padding: 0 20px"
+      >
+        <h2
+          style="
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: #ff7a00;
+            text-align: center;
+            text-shadow: 0 0 10px rgba(255, 122, 0, 0.8),
+              0 0 30px rgba(255, 122, 0, 0.5);
+            margin-bottom: 30px;
+          "
+        >
+          Featured TikToks
+        </h2>
+
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            justify-items: center;
+          "
+        >
+          <!-- Video 1 -->
+          <div class="tiktok-wrapper">
+            <iframe
+              src="https://www.tiktok.com/embed/7599327649525288212"
+              width="330"
+              height="580"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <!-- Video 2 -->
+          <div class="tiktok-wrapper">
+            <iframe
+              src="https://www.tiktok.com/embed/7615330939341737237"
+              width="330"
+              height="580"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <!-- Video 3 -->
+          <div class="tiktok-wrapper">
+            <iframe
+              src="https://www.tiktok.com/embed/7512559727805533470"
+              width="330"
+              height="580"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <!-- Video 4 -->
+          <div class="tiktok-wrapper">
+            <iframe
+              src="https://www.tiktok.com/embed/7491012560657894702"
+              width="330"
+              height="580"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+
+          <!-- Video 5 -->
+          <div class="tiktok-wrapper">
+            <iframe
+              src="https://www.tiktok.com/embed/7616054102325267732"
+              width="330"
+              height="580"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <!-- Video 6 -->
+          <div class="tiktok-wrapper">
+            <iframe
+              src="https://www.tiktok.com/embed/7609755936412192021"
+              width="330"
+              height="580"
+              frameborder="0"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- Glowing border style -->
+      <style>
+        .tiktok-wrapper {
+          border: 3px solid #ff7a00;
+          border-radius: 12px;
+          box-shadow: 0 0 25px rgba(255, 122, 0, 0.4);
+          overflow: hidden;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          background: #000;
+        }
+
+        .tiktok-wrapper:hover {
+          transform: scale(1.05);
+          box-shadow: 0 0 40px rgba(255, 122, 0, 0.7);
+        }
+
+        .tiktok-wrapper iframe {
+          border-radius: 8px;
+        }
+      </style>
+      <h2
+        style="
+          font-family: 'Orbitron', sans-serif;
+          font-size: 2.5rem;
+          color: #ff7a00;
+          text-align: center;
+          text-shadow: 0 0 10px rgba(255, 122, 0, 0.8),
+            0 0 30px rgba(255, 122, 0, 0.5), 0 0 60px rgba(255, 122, 0, 0.3);
+          margin-bottom: 30px;
+        "
+      >
+        Motion Grapics
+      </h2>
+      <section class="hero-video">
+        <iframe
+          width="100%"
+          height="500"
+          src="https://www.youtube.com/embed/U_Ax2DnKPhk?autoplay=1&mute=1&loop=1&playlist=U_Ax2DnKPhk"
+          title="Featured Video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        >
+        </iframe>
+      </section>
+
+      <section class="hero-video">
+        <iframe
+          width="100%"
+          height="500"
+          src=" https://www.youtube.com/embed/-f6BHV3qTJ4?autoplay=1&mute=1&loop=1&playlist=-f6BHV3qTJ4"
+          title="Harjyot Video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        >
+        </iframe>
+      </section>
     </section>
 
-    <section id="contact" class="section">
-      <h2>Contact</h2>
-      <p>Email: joeylahosmedia@gmail.com</p>
+    <section id="contact" class="section" style="text-align: center">
+      <h2
+        style="
+          font-family: 'Orbitron', sans-serif;
+          font-size: 2.5rem;
+          color: #ff7a00;
+          text-shadow: 0 0 10px rgba(255, 122, 0, 0.8),
+            0 0 30px rgba(255, 122, 0, 0.5), 0 0 60px rgba(255, 122, 0, 0.3);
+          margin-bottom: 20px;
+        "
+      >
+        Contact
+      </h2>
+
+      <p
+        style="
+          font-family: 'Orbitron', sans-serif;
+          font-size: 1.2rem;
+          color: #ff7a00;
+          text-shadow: 0 0 5px rgba(255, 122, 0, 0.8),
+            0 0 10px rgba(255, 122, 0, 0.6), 0 0 20px rgba(255, 122, 0, 0.4);
+          transition: all 0.3s ease;
+        "
+      >
+        Email:
+        <a
+          href="mailto:joeylahosmedia@gmail.com"
+          style="
+            color: #ff7a00;
+            text-decoration: none;
+            text-shadow: 0 0 5px rgba(255, 122, 0, 0.8),
+              0 0 10px rgba(255, 122, 0, 0.6), 0 0 20px rgba(255, 122, 0, 0.4);
+            transition: all 0.3s ease;
+          "
+          onmouseover="this.style.textShadow='0 0 10px rgba(255,122,0,1), 0 0 20px rgba(255,122,0,0.8), 0 0 40px rgba(255,122,0,0.6)'; this.style.transform='scale(1.05)';"
+          onmouseout="this.style.textShadow='0 0 5px rgba(255,122,0,0.8), 0 0 10px rgba(255,122,0,0.6), 0 0 20px rgba(255,122,0,0.4)'; this.style.transform='scale(1)';"
+        >
+          joeylahosmedia@gmail.com
+        </a>
+      </p>
     </section>
+
+    <style>
+      #slot-machine-wrap * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Inter", sans-serif;
+      }
+      #slot-machine-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 1rem;
+      }
+      #slot-machine-wrap .sm-machine {
+        background: #111;
+        border: 3px solid #ff7a00;
+        border-radius: 20px;
+        padding: 30px 36px 36px;
+        max-width: 460px;
+        width: 100%;
+        position: relative;
+        box-shadow: 0 0 40px rgba(255, 122, 0, 0.25),
+          0 0 80px rgba(255, 122, 0, 0.1);
+      }
+      #slot-machine-wrap .sm-title {
+        font-family: "Orbitron", monospace;
+        color: #ff7a00;
+        font-size: 1.1rem;
+        text-align: center;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        margin-bottom: 24px;
+        text-shadow: 0 0 12px rgba(255, 122, 0, 0.8);
+      }
+      #slot-machine-wrap .sm-reels {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-bottom: 24px;
+        position: relative;
+      }
+      #slot-machine-wrap .sm-reel-window {
+        width: 106px;
+        height: 106px;
+        background: #050505;
+        border: 2px solid rgba(255, 122, 0, 0.5);
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+      }
+      #slot-machine-wrap .sm-reel-window::before,
+      #slot-machine-wrap .sm-reel-window::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 30px;
+        z-index: 5;
+        pointer-events: none;
+      }
+      #slot-machine-wrap .sm-reel-window::before {
+        top: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.85),
+          transparent
+        );
+      }
+      #slot-machine-wrap .sm-reel-window::after {
+        bottom: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+      }
+      #slot-machine-wrap .sm-reel-track {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+      }
+      #slot-machine-wrap .sm-reel-item {
+        width: 106px;
+        height: 106px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 52px;
+        flex-shrink: 0;
+      }
+      #slot-machine-wrap .sm-payline {
+        position: absolute;
+        top: 50%;
+        left: -6px;
+        right: -6px;
+        height: 2px;
+        background: rgba(255, 122, 0, 0.6);
+        transform: translateY(-50%);
+        z-index: 10;
+        pointer-events: none;
+      }
+      #slot-machine-wrap .sm-payline.win {
+        background: #ff7a00;
+        box-shadow: 0 0 12px rgba(255, 122, 0, 0.9);
+        animation: smPaylinePulse 0.4s ease infinite alternate;
+      }
+      @keyframes smPaylinePulse {
+        from {
+          box-shadow: 0 0 8px rgba(255, 122, 0, 0.7);
+        }
+        to {
+          box-shadow: 0 0 20px rgba(255, 122, 0, 1),
+            0 0 40px rgba(255, 122, 0, 0.6);
+        }
+      }
+      #slot-machine-wrap .sm-credits-row {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+      #slot-machine-wrap .sm-credit-box {
+        flex: 1;
+        background: #0a0a0a;
+        border: 1px solid rgba(255, 122, 0, 0.3);
+        border-radius: 10px;
+        padding: 10px 14px;
+        text-align: center;
+      }
+      #slot-machine-wrap .sm-credit-label {
+        font-size: 10px;
+        letter-spacing: 2px;
+        color: rgba(255, 122, 0, 0.6);
+        text-transform: uppercase;
+        margin-bottom: 4px;
+      }
+      #slot-machine-wrap .sm-credit-value {
+        font-family: "Orbitron", monospace;
+        font-size: 1.3rem;
+        color: #ff7a00;
+        text-shadow: 0 0 10px rgba(255, 122, 0, 0.7);
+      }
+      #slot-machine-wrap .sm-bet-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+      #slot-machine-wrap .sm-bet-btn {
+        background: transparent;
+        border: 1px solid rgba(255, 122, 0, 0.4);
+        color: #ff7a00;
+        border-radius: 8px;
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #slot-machine-wrap .sm-bet-btn:hover {
+        border-color: #ff7a00;
+        box-shadow: 0 0 8px rgba(255, 122, 0, 0.4);
+      }
+      #slot-machine-wrap .sm-bet-display {
+        font-family: "Orbitron", monospace;
+        color: #ff7a00;
+        font-size: 0.95rem;
+        min-width: 90px;
+        text-align: center;
+      }
+      #slot-machine-wrap .sm-spin-btn {
+        width: 100%;
+        padding: 16px;
+        background: linear-gradient(135deg, #ff7a00, #e05500);
+        border: none;
+        border-radius: 12px;
+        color: #fff;
+        font-family: "Orbitron", monospace;
+        font-size: 1rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(255, 122, 0, 0.4), 0 4px 0 #8b3d00;
+      }
+      #slot-machine-wrap .sm-spin-btn:not(:disabled):hover {
+        box-shadow: 0 0 30px rgba(255, 122, 0, 0.7), 0 4px 0 #8b3d00;
+      }
+      #slot-machine-wrap .sm-spin-btn:not(:disabled):active {
+        transform: translateY(2px);
+        box-shadow: 0 0 20px rgba(255, 122, 0, 0.5), 0 2px 0 #8b3d00;
+      }
+      #slot-machine-wrap .sm-spin-btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+      #slot-machine-wrap .sm-spin-btn::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -60%;
+        width: 50%;
+        height: 200%;
+        background: rgba(255, 255, 255, 0.15);
+        transform: skewX(-20deg);
+        animation: smBtnShine 3s infinite;
+      }
+      @keyframes smBtnShine {
+        0% {
+          left: -60%;
+        }
+        40% {
+          left: 120%;
+        }
+        100% {
+          left: 120%;
+        }
+      }
+      #slot-machine-wrap .sm-message {
+        text-align: center;
+        margin-top: 18px;
+        min-height: 28px;
+        font-family: "Orbitron", monospace;
+        font-size: 0.9rem;
+        color: #ff7a00;
+        letter-spacing: 2px;
+        text-shadow: 0 0 10px rgba(255, 122, 0, 0.6);
+      }
+      #slot-machine-wrap .sm-message.win-flash {
+        animation: smWinPulse 0.5s ease infinite alternate;
+      }
+      @keyframes smWinPulse {
+        from {
+          text-shadow: 0 0 6px rgba(255, 122, 0, 0.6);
+        }
+        to {
+          text-shadow: 0 0 20px rgba(255, 122, 0, 1),
+            0 0 40px rgba(255, 122, 0, 0.8);
+        }
+      }
+      #slot-machine-wrap .sm-paytable {
+        margin-top: 20px;
+        border-top: 1px solid rgba(255, 122, 0, 0.2);
+        padding-top: 16px;
+      }
+      #slot-machine-wrap .sm-paytable-title {
+        font-size: 10px;
+        letter-spacing: 2px;
+        color: rgba(255, 122, 0, 0.5);
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      #slot-machine-wrap .sm-paytable-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        justify-content: center;
+      }
+      #slot-machine-wrap .sm-pay-entry {
+        background: #0a0a0a;
+        border: 1px solid rgba(255, 122, 0, 0.2);
+        border-radius: 8px;
+        padding: 5px 10px;
+        font-size: 12px;
+        color: rgba(255, 122, 0, 0.7);
+        white-space: nowrap;
+      }
+      #slot-machine-wrap .sm-confetti-wrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        overflow: hidden;
+        border-radius: 18px;
+      }
+      .sm-confetti-piece {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        opacity: 0;
+        border-radius: 2px;
+      }
+      @keyframes smConfettiFall {
+        0% {
+          transform: translateY(-20px) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(280px) rotate(720deg);
+          opacity: 0;
+        }
+      }
+    </style>
+
+    <div id="slot-machine-wrap">
+      <div class="sm-machine">
+        <div class="sm-confetti-wrap" id="sm-confetti"></div>
+        <div class="sm-title">★ Harj N Puff Gold Blitz ★</div>
+
+        <div class="sm-credits-row">
+          <div class="sm-credit-box">
+            <div class="sm-credit-label">Credits</div>
+            <div class="sm-credit-value" id="sm-credits">100</div>
+          </div>
+          <div class="sm-credit-box">
+            <div class="sm-credit-label">Last Win</div>
+            <div class="sm-credit-value" id="sm-last-win">0</div>
+          </div>
+        </div>
+
+        <div class="sm-reels" id="sm-reels-container">
+          <div class="sm-reel-window">
+            <div class="sm-reel-track" id="sm-reel-0">
+              <div class="sm-reel-item">🍒</div>
+            </div>
+          </div>
+          <div class="sm-reel-window">
+            <div class="sm-reel-track" id="sm-reel-1">
+              <div class="sm-reel-item">🍒</div>
+            </div>
+          </div>
+          <div class="sm-reel-window">
+            <div class="sm-reel-track" id="sm-reel-2">
+              <div class="sm-reel-item">🍒</div>
+            </div>
+          </div>
+          <div class="sm-payline" id="sm-payline"></div>
+        </div>
+
+        <div class="sm-bet-row">
+          <button class="sm-bet-btn" id="sm-bet-down">−</button>
+          <div class="sm-bet-display" id="sm-bet-display">BET: 5</div>
+          <button class="sm-bet-btn" id="sm-bet-up">+</button>
+        </div>
+
+        <button class="sm-spin-btn" id="sm-spin-btn">SPIN</button>
+        <div class="sm-message" id="sm-message">Good luck!</div>
+
+        <div class="sm-paytable">
+          <div class="sm-paytable-title">Paytable (× bet)</div>
+          <div class="sm-paytable-grid">
+            <div class="sm-pay-entry">💎💎💎 → ×50</div>
+            <div class="sm-pay-entry">7️⃣7️⃣7️⃣ → ×20</div>
+            <div class="sm-pay-entry">⭐⭐⭐ → ×15</div>
+            <div class="sm-pay-entry">🔔🔔🔔 → ×10</div>
+            <div class="sm-pay-entry">🍋🍋🍋 → ×8</div>
+            <div class="sm-pay-entry">🍇🍇🍇 → ×6</div>
+            <div class="sm-pay-entry">🍒🍒🍒 → ×4</div>
+            <div class="sm-pay-entry">Any 2 → ×1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        const SYMBOLS = [
+          "🍒",
+          "🍒",
+          "🍒",
+          "🍇",
+          "🍇",
+          "🍋",
+          "🍋",
+          "🔔",
+          "⭐",
+          "7️⃣",
+          "💎",
+        ];
+        const PAYOUTS = {
+          "💎💎💎": 50,
+          "7️⃣7️⃣7️⃣": 20,
+          "⭐⭐⭐": 15,
+          "🔔🔔🔔": 10,
+          "🍋🍋🍋": 8,
+          "🍇🍇🍇": 6,
+          "🍒🍒🍒": 4,
+        };
+
+        let credits = 100,
+          bet = 5,
+          spinning = false;
+
+        const creditsEl = document.getElementById("sm-credits");
+        const lastWinEl = document.getElementById("sm-last-win");
+        const betDisplay = document.getElementById("sm-bet-display");
+        const spinBtn = document.getElementById("sm-spin-btn");
+        const messageEl = document.getElementById("sm-message");
+        const payline = document.getElementById("sm-payline");
+        const confettiEl = document.getElementById("sm-confetti");
+
+        function rand() {
+          return SYMBOLS[Math.floor(Math.random() * SYMBOLS.length)];
+        }
+        function updateBet() {
+          betDisplay.textContent = "BET: " + bet;
+        }
+
+        document.getElementById("sm-bet-down").addEventListener("click", () => {
+          if (!spinning && bet > 1) {
+            bet = bet <= 5 ? bet - 1 : bet - 5;
+            updateBet();
+          }
+        });
+        document.getElementById("sm-bet-up").addEventListener("click", () => {
+          if (!spinning) {
+            const max = Math.min(credits, 50);
+            if (bet < max) {
+              bet = bet < 5 ? bet + 1 : Math.min(bet + 5, max);
+              updateBet();
+            }
+          }
+        });
+
+        function buildTrack(id, symbols) {
+          const t = document.getElementById(id);
+          t.innerHTML = "";
+          symbols.forEach((s) => {
+            const d = document.createElement("div");
+            d.className = "sm-reel-item";
+            d.textContent = s;
+            t.appendChild(d);
+          });
+          t.style.top = "0px";
+        }
+
+        function animateReel(id, finalSym, duration, delay) {
+          return new Promise((resolve) => {
+            const len = 24;
+            const syms = [];
+            for (let i = 0; i < len - 1; i++) syms.push(rand());
+            syms.push(finalSym);
+            buildTrack(id, syms);
+            const itemH = 106,
+              total = (len - 1) * itemH;
+            const start = performance.now() + delay;
+            function easeOut(t) {
+              return 1 - Math.pow(1 - t, 3);
+            }
+            function frame(now) {
+              if (now < start) {
+                requestAnimationFrame(frame);
+                return;
+              }
+              const t = Math.min((now - start) / duration, 1);
+              document.getElementById(id).style.top =
+                -(easeOut(t) * total) + "px";
+              if (t < 1) requestAnimationFrame(frame);
+              else {
+                document.getElementById(id).style.top =
+                  -((len - 1) * itemH) + "px";
+                resolve();
+              }
+            }
+            requestAnimationFrame(frame);
+          });
+        }
+
+        function fireConfetti() {
+          confettiEl.innerHTML = "";
+          const colors = ["#ff7a00", "#ffb347", "#fff", "#ffd700", "#ff4500"];
+          for (let i = 0; i < 30; i++) {
+            const p = document.createElement("div");
+            p.className = "sm-confetti-piece";
+            p.style.cssText = `left:${Math.random() * 100}%;top:${
+              Math.random() * 20
+            }%;background:${
+              colors[Math.floor(Math.random() * colors.length)]
+            };animation:smConfettiFall ${0.8 + Math.random() * 0.8}s ${
+              Math.random() * 0.4
+            }s ease-in forwards`;
+            confettiEl.appendChild(p);
+          }
+          setTimeout(() => (confettiEl.innerHTML = ""), 2000);
+        }
+
+        function setMsg(text, win) {
+          messageEl.textContent = text;
+          messageEl.className = "sm-message" + (win ? " win-flash" : "");
+        }
+
+        async function spin() {
+          if (spinning || credits < bet) return;
+          spinning = true;
+          spinBtn.disabled = true;
+          payline.classList.remove("win");
+          setMsg("Spinning...", false);
+          credits -= bet;
+          creditsEl.textContent = credits;
+          lastWinEl.textContent = 0;
+
+          const results = [rand(), rand(), rand()];
+          await Promise.all([
+            animateReel("sm-reel-0", results[0], 900, 0),
+            animateReel("sm-reel-1", results[1], 1050, 120),
+            animateReel("sm-reel-2", results[2], 1200, 240),
+          ]);
+
+          const key = results.join("");
+          const mult = PAYOUTS[key];
+          let win = 0;
+          if (mult) {
+            win = bet * mult;
+            credits += win;
+            creditsEl.textContent = credits;
+            lastWinEl.textContent = win;
+            payline.classList.add("win");
+            fireConfetti();
+            setMsg(
+              mult >= 20
+                ? "JACKPOT! +" + win
+                : mult >= 10
+                ? "BIG WIN! +" + win
+                : "YOU WIN! +" + win,
+              true
+            );
+          } else {
+            const u = new Set(results);
+            if (u.size <= 2) {
+              win = bet;
+              credits += win;
+              creditsEl.textContent = credits;
+              lastWinEl.textContent = win;
+              setMsg("Almost! +" + win, false);
+            } else setMsg("Try again!", false);
+          }
+          if (credits <= 0) {
+            credits = 100;
+            creditsEl.textContent = credits;
+            setMsg("Reloaded 100 credits!", false);
+          }
+          spinning = false;
+          spinBtn.disabled = false;
+        }
+
+        spinBtn.addEventListener("click", spin);
+        buildTrack("sm-reel-0", ["🍒"]);
+        buildTrack("sm-reel-1", ["🍒"]);
+        buildTrack("sm-reel-2", ["🍒"]);
+      })();
+    </script>
 
     <footer>© 2026 Harjyot Sohal</footer>
   </body>
