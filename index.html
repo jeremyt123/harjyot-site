@@ -4,21 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Harjyot Sohal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
     <style>
       :root {
         --orange: #ff7a00;
-        --orange-dim: rgba(255,122,0,0.2);
-        --orange-glow: rgba(255,122,0,0.6);
+        --orange-dim: rgba(255, 122, 0, 0.2);
+        --orange-glow: rgba(255, 122, 0, 0.6);
         --bg: #050505;
         --card: #0c0c0c;
       }
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
       /* ─── SCROLLBAR ─── */
-      ::-webkit-scrollbar { width: 4px; }
-      ::-webkit-scrollbar-track { background: #000; }
-      ::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 2px; }
+      ::-webkit-scrollbar {
+        width: 4px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #000;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--orange);
+        border-radius: 2px;
+      }
 
       body {
         background: var(--bg);
@@ -31,37 +47,41 @@
       /* ─── CUSTOM CURSOR ─── */
       #cursor {
         position: fixed;
-        width: 12px; height: 12px;
+        width: 12px;
+        height: 12px;
         background: var(--orange);
         border-radius: 50%;
         pointer-events: none;
         z-index: 9999;
-        transform: translate(-50%,-50%);
-        transition: width .15s, height .15s, opacity .15s;
+        transform: translate(-50%, -50%);
+        transition: width 0.15s, height 0.15s, opacity 0.15s;
         box-shadow: 0 0 12px var(--orange-glow);
         mix-blend-mode: screen;
       }
       #cursor-ring {
         position: fixed;
-        width: 36px; height: 36px;
-        border: 1px solid rgba(255,122,0,0.5);
+        width: 36px;
+        height: 36px;
+        border: 1px solid rgba(255, 122, 0, 0.5);
         border-radius: 50%;
         pointer-events: none;
         z-index: 9998;
-        transform: translate(-50%,-50%);
-        transition: transform .08s ease, width .2s, height .2s;
+        transform: translate(-50%, -50%);
+        transition: transform 0.08s ease, width 0.2s, height 0.2s;
       }
-      body:hover #cursor { opacity: 1; }
+      body:hover #cursor {
+        opacity: 1;
+      }
 
       /* ─── NOISE OVERLAY ─── */
       body::before {
-        content: '';
+        content: "";
         position: fixed;
         inset: 0;
         background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
         pointer-events: none;
         z-index: 9997;
-        opacity: .4;
+        opacity: 0.4;
       }
 
       /* ─── NAV ─── */
@@ -72,13 +92,17 @@
         padding: 20px 40px;
         border-bottom: 1px solid var(--orange-dim);
         position: fixed;
-        top: 0; left: 0; right: 0;
+        top: 0;
+        left: 0;
+        right: 0;
         z-index: 100;
-        background: rgba(5,5,5,0.85);
+        background: rgba(5, 5, 5, 0.85);
         backdrop-filter: blur(12px);
-        transition: padding .3s;
+        transition: padding 0.3s;
       }
-      header.scrolled { padding: 12px 40px; }
+      header.scrolled {
+        padding: 12px 40px;
+      }
       .logo {
         font-family: "Orbitron";
         color: var(--orange);
@@ -89,34 +113,41 @@
         color: #aaa;
         margin-left: 28px;
         text-decoration: none;
-        font-size: .85rem;
+        font-size: 0.85rem;
         letter-spacing: 1px;
         text-transform: uppercase;
         position: relative;
-        transition: color .3s;
+        transition: color 0.3s;
       }
       nav a::after {
-        content: '';
+        content: "";
         position: absolute;
-        bottom: -3px; left: 0; right: 0;
+        bottom: -3px;
+        left: 0;
+        right: 0;
         height: 1px;
         background: var(--orange);
         transform: scaleX(0);
-        transition: transform .3s;
+        transition: transform 0.3s;
         transform-origin: left;
       }
-      nav a:hover { color: var(--orange); }
-      nav a:hover::after { transform: scaleX(1); }
+      nav a:hover {
+        color: var(--orange);
+      }
+      nav a:hover::after {
+        transform: scaleX(1);
+      }
 
       /* ─── SCROLL PROGRESS ─── */
       #scroll-progress {
         position: fixed;
-        top: 0; left: 0;
+        top: 0;
+        left: 0;
         height: 2px;
         background: linear-gradient(90deg, var(--orange), #ffb347);
         z-index: 101;
         width: 0%;
-        transition: width .1s;
+        transition: width 0.1s;
         box-shadow: 0 0 8px var(--orange-glow);
       }
 
@@ -127,7 +158,7 @@
         align-items: center;
         justify-content: center;
         text-align: center;
-        background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.88)),
+        background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.88)),
           url("https://images.unsplash.com/photo-1481414981591-5732874c7193?q=80&w=1173&auto=format&fit=crop");
         background-size: cover;
         background-position: center;
@@ -135,36 +166,52 @@
         position: relative;
         overflow: hidden;
       }
-      /* animated scan line */
       .hero::after {
-        content: '';
+        content: "";
         position: absolute;
         inset: 0;
-        background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.04) 2px, rgba(0,0,0,0.04) 4px);
+        background: repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          rgba(0, 0, 0, 0.04) 2px,
+          rgba(0, 0, 0, 0.04) 4px
+        );
         pointer-events: none;
         animation: scanMove 8s linear infinite;
       }
       @keyframes scanMove {
-        from { background-position: 0 0; }
-        to { background-position: 0 40px; }
+        from {
+          background-position: 0 0;
+        }
+        to {
+          background-position: 0 40px;
+        }
       }
 
       .hero-box {
-        background: rgba(0,0,0,0.65);
+        background: rgba(0, 0, 0, 0.65);
         padding: 50px 48px;
         border-radius: 16px;
         max-width: 740px;
         width: 90%;
         backdrop-filter: blur(10px);
         border: 1px solid var(--orange-dim);
-        box-shadow: 0 0 30px rgba(255,122,0,0.15), inset 0 0 30px rgba(255,122,0,0.04);
+        box-shadow: 0 0 30px rgba(255, 122, 0, 0.15),
+          inset 0 0 30px rgba(255, 122, 0, 0.04);
         animation: heroReveal 1.2s ease both;
         position: relative;
         z-index: 1;
       }
       @keyframes heroReveal {
-        from { opacity: 0; transform: translateY(30px) scale(0.97); }
-        to   { opacity: 1; transform: translateY(0)   scale(1); }
+        from {
+          opacity: 0;
+          transform: translateY(30px) scale(0.97);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
       }
       .hero-cta {
         display: inline-block;
@@ -174,10 +221,10 @@
         color: var(--orange);
         text-decoration: none;
         font-family: "Orbitron";
-        font-size: .75rem;
+        font-size: 0.75rem;
         letter-spacing: 3px;
         border-radius: 4px;
-        transition: background .3s, color .3s, box-shadow .3s;
+        transition: background 0.3s, color 0.3s, box-shadow 0.3s;
       }
       .hero-cta:hover {
         background: var(--orange);
@@ -193,51 +240,94 @@
         color: var(--orange);
         letter-spacing: 2px;
         text-transform: uppercase;
-        text-shadow: 0 0 10px rgba(255,122,0,0.95), 0 0 28px rgba(255,122,0,0.7);
+        text-shadow: 0 0 10px rgba(255, 122, 0, 0.95),
+          0 0 28px rgba(255, 122, 0, 0.7);
         animation: flicker 1.8s infinite, glitchPulse 6s infinite;
       }
-      .glitch::before, .glitch::after {
+      .glitch::before,
+      .glitch::after {
         content: attr(data-text);
         position: absolute;
-        left: 0; top: 0;
+        left: 0;
+        top: 0;
         width: 100%;
         color: var(--orange);
         opacity: 0.35;
       }
-      .glitch::before { animation: glitchShift 2s infinite; }
-      .glitch::after  { animation: glitchShift 2.4s infinite reverse; }
+      .glitch::before {
+        animation: glitchShift 2s infinite;
+      }
+      .glitch::after {
+        animation: glitchShift 2.4s infinite reverse;
+      }
       @keyframes flicker {
-        0%,16%,20%,24%,52%,56%,100% { opacity: 1; }
-        18%,22%,54% { opacity: 0.8; }
+        0%,
+        16%,
+        20%,
+        24%,
+        52%,
+        56%,
+        100% {
+          opacity: 1;
+        }
+        18%,
+        22%,
+        54% {
+          opacity: 0.8;
+        }
       }
       @keyframes glitchShift {
-        0%   { transform: translateX(0); }
-        15%  { transform: translateX(-2px); }
-        30%  { transform: translateX(2px); }
-        45%  { transform: translateX(-1.5px); }
-        60%  { transform: translateX(1.5px); }
-        75%  { transform: translateX(-1px); }
-        90%  { transform: translateX(1px); }
-        100% { transform: translateX(0); }
+        0% {
+          transform: translateX(0);
+        }
+        15% {
+          transform: translateX(-2px);
+        }
+        30% {
+          transform: translateX(2px);
+        }
+        45% {
+          transform: translateX(-1.5px);
+        }
+        60% {
+          transform: translateX(1.5px);
+        }
+        75% {
+          transform: translateX(-1px);
+        }
+        90% {
+          transform: translateX(1px);
+        }
+        100% {
+          transform: translateX(0);
+        }
       }
       @keyframes glitchPulse {
-        0%,92%,100% { letter-spacing: 2px; }
-        94% { letter-spacing: 4px; }
-        96% { letter-spacing: 1px; }
+        0%,
+        92%,
+        100% {
+          letter-spacing: 2px;
+        }
+        94% {
+          letter-spacing: 4px;
+        }
+        96% {
+          letter-spacing: 1px;
+        }
       }
       .hero-sub {
         color: var(--orange);
         margin-top: 12px;
         font-size: 1.1rem;
-        text-shadow: 0 0 10px rgba(255,122,0,0.5);
-        animation: heroReveal 1.4s .2s ease both;
+        text-shadow: 0 0 10px rgba(255, 122, 0, 0.5);
+        animation: heroReveal 1.4s 0.2s ease both;
       }
       .hero-desc {
         color: #ccc;
         margin-top: 15px;
         line-height: 1.7;
-        font-size: .95rem;
-        animation: heroReveal 1.4s .4s ease both;
+        font-size: 0.95rem;
+        animation: heroReveal 1.4s 0.4s ease both;
       }
 
       /* ─── SECTION BASE ─── */
@@ -251,7 +341,8 @@
         font-size: 2.2rem;
         color: var(--orange);
         text-align: center;
-        text-shadow: 0 0 10px rgba(255,122,0,0.8), 0 0 30px rgba(255,122,0,0.5), 0 0 60px rgba(255,122,0,0.3);
+        text-shadow: 0 0 10px rgba(255, 122, 0, 0.8),
+          0 0 30px rgba(255, 122, 0, 0.5), 0 0 60px rgba(255, 122, 0, 0.3);
         margin-bottom: 40px;
       }
 
@@ -259,7 +350,7 @@
       .reveal {
         opacity: 0;
         transform: translateY(40px);
-        transition: opacity .7s ease, transform .7s ease;
+        transition: opacity 0.7s ease, transform 0.7s ease;
       }
       .reveal.visible {
         opacity: 1;
@@ -268,7 +359,7 @@
       .reveal-left {
         opacity: 0;
         transform: translateX(-50px);
-        transition: opacity .8s ease, transform .8s ease;
+        transition: opacity 0.8s ease, transform 0.8s ease;
       }
       .reveal-left.visible {
         opacity: 1;
@@ -277,7 +368,7 @@
       .reveal-right {
         opacity: 0;
         transform: translateX(50px);
-        transition: opacity .8s ease, transform .8s ease;
+        transition: opacity 0.8s ease, transform 0.8s ease;
       }
       .reveal-right.visible {
         opacity: 1;
@@ -286,35 +377,75 @@
       .reveal-scale {
         opacity: 0;
         transform: scale(0.85);
-        transition: opacity .7s ease, transform .7s ease;
+        transition: opacity 0.7s ease, transform 0.7s ease;
       }
       .reveal-scale.visible {
         opacity: 1;
         transform: scale(1);
       }
-      /* staggered children */
       .stagger > * {
         opacity: 0;
         transform: translateY(30px);
-        transition: opacity .6s ease, transform .6s ease;
+        transition: opacity 0.6s ease, transform 0.6s ease;
       }
-      .stagger.visible > *:nth-child(1) { transition-delay: 0s;    opacity:1; transform:none; }
-      .stagger.visible > *:nth-child(2) { transition-delay: .1s;   opacity:1; transform:none; }
-      .stagger.visible > *:nth-child(3) { transition-delay: .2s;   opacity:1; transform:none; }
-      .stagger.visible > *:nth-child(4) { transition-delay: .3s;   opacity:1; transform:none; }
-      .stagger.visible > *:nth-child(5) { transition-delay: .4s;   opacity:1; transform:none; }
-      .stagger.visible > *:nth-child(6) { transition-delay: .5s;   opacity:1; transform:none; }
-      .stagger.visible > *:nth-child(7) { transition-delay: .6s;   opacity:1; transform:none; }
-      .stagger.visible > *:nth-child(8) { transition-delay: .7s;   opacity:1; transform:none; }
-      .stagger.visible > *:nth-child(9) { transition-delay: .8s;   opacity:1; transform:none; }
+      .stagger.visible > *:nth-child(1) {
+        transition-delay: 0s;
+        opacity: 1;
+        transform: none;
+      }
+      .stagger.visible > *:nth-child(2) {
+        transition-delay: 0.1s;
+        opacity: 1;
+        transform: none;
+      }
+      .stagger.visible > *:nth-child(3) {
+        transition-delay: 0.2s;
+        opacity: 1;
+        transform: none;
+      }
+      .stagger.visible > *:nth-child(4) {
+        transition-delay: 0.3s;
+        opacity: 1;
+        transform: none;
+      }
+      .stagger.visible > *:nth-child(5) {
+        transition-delay: 0.4s;
+        opacity: 1;
+        transform: none;
+      }
+      .stagger.visible > *:nth-child(6) {
+        transition-delay: 0.5s;
+        opacity: 1;
+        transform: none;
+      }
+      .stagger.visible > *:nth-child(7) {
+        transition-delay: 0.6s;
+        opacity: 1;
+        transform: none;
+      }
+      .stagger.visible > *:nth-child(8) {
+        transition-delay: 0.7s;
+        opacity: 1;
+        transform: none;
+      }
+      .stagger.visible > *:nth-child(9) {
+        transition-delay: 0.8s;
+        opacity: 1;
+        transform: none;
+      }
 
       /* ─── DIVIDER ─── */
       .divider {
         width: 100%;
         height: 1px;
-        background: linear-gradient(90deg, transparent, var(--orange), transparent);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--orange),
+          transparent
+        );
         margin: 0 auto;
-        opacity: .4;
+        opacity: 0.4;
       }
 
       /* ─── ABOUT ─── */
@@ -327,75 +458,59 @@
         gap: 60px;
         align-items: center;
       }
-      @media(max-width:720px) {
-        .about-grid { grid-template-columns: 1fr; gap: 40px; }
-        .glitch { font-size: 2rem; }
+      @media (max-width: 720px) {
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .glitch {
+          font-size: 2rem;
+        }
       }
 
-      /* Photo frame with scroll parallax effect */
       .photo-frame {
         position: relative;
       }
       .photo-frame::before {
-        content: '';
+        content: "";
         position: absolute;
         inset: -8px;
         border: 1px solid var(--orange-dim);
         border-radius: 16px;
         transform: rotate(2deg);
-        transition: transform .4s;
+        transition: transform 0.4s;
       }
       .photo-frame::after {
-        content: '';
+        content: "";
         position: absolute;
         inset: -16px;
-        border: 1px solid rgba(255,122,0,0.1);
+        border: 1px solid rgba(255, 122, 0, 0.1);
         border-radius: 20px;
         transform: rotate(-1.5deg);
-        transition: transform .4s;
+        transition: transform 0.4s;
       }
-      .photo-frame:hover::before { transform: rotate(0deg); }
-      .photo-frame:hover::after  { transform: rotate(0deg); }
-
+      .photo-frame:hover::before {
+        transform: rotate(0deg);
+      }
+      .photo-frame:hover::after {
+        transform: rotate(0deg);
+      }
       .photo-img {
         width: 100%;
         aspect-ratio: 3/4;
         object-fit: cover;
         border-radius: 12px;
-        border: 2px solid rgba(255,122,0,0.3);
+        border: 2px solid rgba(255, 122, 0, 0.3);
         filter: grayscale(20%) contrast(1.05);
-        transition: filter .4s, box-shadow .4s;
+        transition: filter 0.4s, box-shadow 0.4s;
         display: block;
         position: relative;
         z-index: 1;
       }
-      /* Placeholder shown when no real photo is provided */
-      .photo-placeholder {
-        width: 100%;
-        aspect-ratio: 3/4;
-        border-radius: 12px;
-        border: 2px dashed rgba(255,122,0,0.4);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        background: rgba(255,122,0,0.03);
-        color: rgba(255,122,0,0.5);
-        font-size: .85rem;
-        letter-spacing: 1px;
-        text-align: center;
-        gap: 12px;
-        position: relative;
-        z-index: 1;
-      }
-      .photo-placeholder svg { opacity: .4; }
-
       .photo-frame:hover .photo-img {
         filter: grayscale(0%) contrast(1.1);
-        box-shadow: 0 0 40px rgba(255,122,0,0.3);
+        box-shadow: 0 0 40px rgba(255, 122, 0, 0.3);
       }
-
-      /* scroll-driven tilt on photo */
       .photo-frame {
         will-change: transform;
       }
@@ -405,13 +520,13 @@
         font-size: 1.8rem;
         color: var(--orange);
         margin-bottom: 20px;
-        text-shadow: 0 0 12px rgba(255,122,0,0.5);
+        text-shadow: 0 0 12px rgba(255, 122, 0, 0.5);
       }
       .about-text p {
         color: #bbb;
         line-height: 1.8;
         margin-bottom: 16px;
-        font-size: .95rem;
+        font-size: 0.95rem;
       }
       .skills-row {
         display: flex;
@@ -421,17 +536,17 @@
       }
       .skill-tag {
         padding: 6px 14px;
-        border: 1px solid rgba(255,122,0,0.35);
+        border: 1px solid rgba(255, 122, 0, 0.35);
         border-radius: 4px;
-        font-size: .78rem;
-        color: rgba(255,122,0,0.85);
+        font-size: 0.78rem;
+        color: rgba(255, 122, 0, 0.85);
         letter-spacing: 1px;
-        background: rgba(255,122,0,0.05);
-        transition: background .3s, box-shadow .3s;
+        background: rgba(255, 122, 0, 0.05);
+        transition: background 0.3s, box-shadow 0.3s;
       }
       .skill-tag:hover {
-        background: rgba(255,122,0,0.12);
-        box-shadow: 0 0 10px rgba(255,122,0,0.3);
+        background: rgba(255, 122, 0, 0.12);
+        box-shadow: 0 0 10px rgba(255, 122, 0, 0.3);
       }
 
       /* ─── STATS BAR ─── */
@@ -440,11 +555,13 @@
         justify-content: center;
         gap: 60px;
         padding: 48px 24px;
-        background: rgba(255,122,0,0.04);
+        background: rgba(255, 122, 0, 0.04);
         border-top: 1px solid var(--orange-dim);
         border-bottom: 1px solid var(--orange-dim);
       }
-      .stat-item { text-align: center; }
+      .stat-item {
+        text-align: center;
+      }
       .stat-num {
         font-family: "Orbitron";
         font-size: 2.4rem;
@@ -453,15 +570,20 @@
         display: block;
       }
       .stat-label {
-        font-size: .75rem;
+        font-size: 0.75rem;
         letter-spacing: 2px;
         color: #777;
         text-transform: uppercase;
         margin-top: 4px;
       }
-      @media(max-width:600px) {
-        .stats-strip { gap: 30px; flex-wrap: wrap; }
-        .stat-num { font-size: 1.8rem; }
+      @media (max-width: 600px) {
+        .stats-strip {
+          gap: 30px;
+          flex-wrap: wrap;
+        }
+        .stat-num {
+          font-size: 1.8rem;
+        }
       }
 
       /* ─── OWNERSBOX BANNER ─── */
@@ -472,11 +594,11 @@
         text-align: center;
         color: #ccc;
         line-height: 1.7;
-        background: rgba(0,0,0,0.55);
-        border: 1px solid rgba(255,122,0,0.25);
+        background: rgba(0, 0, 0, 0.55);
+        border: 1px solid rgba(255, 122, 0, 0.25);
         border-radius: 12px;
-        box-shadow: 0 0 25px rgba(255,122,0,0.1);
-        font-size: .93rem;
+        box-shadow: 0 0 25px rgba(255, 122, 0, 0.1);
+        font-size: 0.93rem;
       }
       .ob-label {
         color: var(--orange);
@@ -484,8 +606,8 @@
         letter-spacing: 2px;
         margin-bottom: 12px;
         text-transform: uppercase;
-        text-shadow: 0 0 10px rgba(255,122,0,0.6);
-        font-size: .85rem;
+        text-shadow: 0 0 10px rgba(255, 122, 0, 0.6);
+        font-size: 0.85rem;
       }
 
       /* ─── GRID ─── */
@@ -497,37 +619,202 @@
 
       /* ─── VIDEO CARDS ─── */
       .video {
-        border: 2px solid rgba(255,122,0,0.2);
+        border: 2px solid rgba(255, 122, 0, 0.2);
         border-radius: 12px;
         overflow: hidden;
         background: var(--card);
-        transition: transform .3s ease, box-shadow .3s ease, border-color .3s;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
       }
       .video:hover {
         transform: scale(1.04) translateY(-4px);
-        box-shadow: 0 12px 40px rgba(255,122,0,0.5);
+        box-shadow: 0 12px 40px rgba(255, 122, 0, 0.5);
         border-color: var(--orange);
       }
-      .video iframe { width: 100%; height: 200px; border: 0; }
+      .video iframe {
+        width: 100%;
+        height: 200px;
+        border: 0;
+      }
       .video h3 {
         padding: 14px;
         color: var(--orange);
-        font-size: .9rem;
-        text-shadow: 0 0 10px rgba(255,122,0,0.6);
+        font-size: 0.9rem;
+        text-shadow: 0 0 10px rgba(255, 122, 0, 0.6);
+      }
+
+      /* ─── BRAND WORK SECTION ─── */
+      #brand-work {
+        background: rgba(255, 122, 0, 0.02);
+        border-top: 1px solid var(--orange-dim);
+        border-bottom: 1px solid var(--orange-dim);
+        padding: 80px 0;
+      }
+      #brand-work .section {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+
+      /* Brand logos strip */
+      .brand-logos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+        flex-wrap: wrap;
+        margin-bottom: 48px;
+      }
+      .brand-pill {
+        padding: 8px 22px;
+        border: 1px solid rgba(255, 122, 0, 0.4);
+        border-radius: 100px;
+        font-family: "Orbitron";
+        font-size: 0.72rem;
+        letter-spacing: 2px;
+        color: rgba(255, 122, 0, 0.75);
+        background: rgba(255, 122, 0, 0.06);
+        text-transform: uppercase;
+        transition: background 0.3s, box-shadow 0.3s, color 0.3s;
+      }
+      .brand-pill:hover {
+        background: rgba(255, 122, 0, 0.14);
+        box-shadow: 0 0 14px rgba(255, 122, 0, 0.35);
+        color: var(--orange);
+      }
+
+      /* Brand blurb banner */
+      .brand-blurb {
+        max-width: 820px;
+        margin: 0 auto 52px auto;
+        padding: 26px 36px;
+        text-align: center;
+        color: #bbb;
+        line-height: 1.75;
+        font-size: 0.95rem;
+        background: rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(255, 122, 0, 0.22);
+        border-radius: 12px;
+        box-shadow: 0 0 30px rgba(255, 122, 0, 0.08);
+        position: relative;
+        overflow: hidden;
+      }
+      .brand-blurb::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--orange),
+          transparent
+        );
+        opacity: 0.6;
+      }
+      .brand-blurb strong {
+        color: var(--orange);
+        font-weight: 600;
+      }
+
+      /* Shorts grid — portrait aspect ratio */
+      .shorts-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+      }
+      @media (min-width: 900px) {
+        .shorts-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+      @media (max-width: 600px) {
+        .shorts-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      .short-card {
+        border: 2px solid rgba(255, 122, 0, 0.22);
+        border-radius: 12px;
+        overflow: hidden;
+        background: var(--card);
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+        aspect-ratio: 9/16;
+        position: relative;
+      }
+      .short-card:hover {
+        transform: scale(1.04) translateY(-4px);
+        box-shadow: 0 12px 40px rgba(255, 122, 0, 0.5);
+        border-color: var(--orange);
+      }
+      .short-card iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+      }
+
+      /* Brand TikTok cards — same portrait style */
+      .brand-tiktok-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        margin-top: 24px;
+      }
+      @media (min-width: 900px) {
+        .brand-tiktok-grid {
+          grid-template-columns: repeat(3, minmax(0, 320px));
+          justify-content: center;
+        }
+      }
+      .brand-tiktok-card {
+        border: 2px solid var(--orange);
+        border-radius: 12px;
+        box-shadow: 0 0 20px rgba(255, 122, 0, 0.3);
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+        background: #000;
+        aspect-ratio: 9/16;
+      }
+      .brand-tiktok-card:hover {
+        transform: scale(1.04) translateY(-4px);
+        box-shadow: 0 0 40px rgba(255, 122, 0, 0.7);
+      }
+      .brand-tiktok-card iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+      }
+
+      /* Sub-label for brand subsections */
+      .brand-sub-label {
+        font-family: "Orbitron";
+        font-size: 0.78rem;
+        letter-spacing: 3px;
+        color: rgba(255, 122, 0, 0.55);
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 20px;
+        margin-top: 44px;
+      }
+      .brand-sub-label:first-of-type {
+        margin-top: 0;
       }
 
       /* ─── TIKTOK ─── */
       .tiktok-wrapper {
         border: 2px solid var(--orange);
         border-radius: 12px;
-        box-shadow: 0 0 20px rgba(255,122,0,0.3);
+        box-shadow: 0 0 20px rgba(255, 122, 0, 0.3);
         overflow: hidden;
-        transition: transform .3s, box-shadow .3s;
+        transition: transform 0.3s, box-shadow 0.3s;
         background: #000;
       }
       .tiktok-wrapper:hover {
         transform: scale(1.04) translateY(-4px);
-        box-shadow: 0 0 40px rgba(255,122,0,0.7);
+        box-shadow: 0 0 40px rgba(255, 122, 0, 0.7);
       }
 
       /* ─── MOTION GRAPHICS iframes ─── */
@@ -536,36 +823,44 @@
         border-radius: 12px;
         overflow: hidden;
         border: 1px solid var(--orange-dim);
-        box-shadow: 0 0 30px rgba(255,122,0,0.15);
-        transition: box-shadow .3s;
+        box-shadow: 0 0 30px rgba(255, 122, 0, 0.15);
+        transition: box-shadow 0.3s;
       }
-      .hero-video:hover { box-shadow: 0 0 50px rgba(255,122,0,0.35); }
-      .hero-video iframe { display: block; }
+      .hero-video:hover {
+        box-shadow: 0 0 50px rgba(255, 122, 0, 0.35);
+      }
+      .hero-video iframe {
+        display: block;
+      }
 
       /* ─── CONTACT ─── */
-      #contact { text-align: center; }
+      #contact {
+        text-align: center;
+      }
       .contact-card {
         display: inline-block;
         margin-top: 20px;
         padding: 32px 48px;
         border: 1px solid var(--orange-dim);
         border-radius: 16px;
-        background: rgba(0,0,0,0.4);
+        background: rgba(0, 0, 0, 0.4);
         backdrop-filter: blur(8px);
-        box-shadow: 0 0 30px rgba(255,122,0,0.1);
-        transition: box-shadow .4s;
+        box-shadow: 0 0 30px rgba(255, 122, 0, 0.1);
+        transition: box-shadow 0.4s;
       }
-      .contact-card:hover { box-shadow: 0 0 50px rgba(255,122,0,0.25); }
+      .contact-card:hover {
+        box-shadow: 0 0 50px rgba(255, 122, 0, 0.25);
+      }
       .contact-card p {
         font-family: "Orbitron";
         font-size: 1.1rem;
         color: var(--orange);
-        text-shadow: 0 0 8px rgba(255,122,0,0.7);
+        text-shadow: 0 0 8px rgba(255, 122, 0, 0.7);
       }
       .contact-card a {
         color: var(--orange);
         text-decoration: none;
-        transition: text-shadow .3s;
+        transition: text-shadow 0.3s;
       }
       .contact-card a:hover {
         text-shadow: 0 0 16px var(--orange);
@@ -576,19 +871,21 @@
         text-align: center;
         padding: 32px;
         color: #555;
-        border-top: 1px solid rgba(255,122,0,0.08);
-        font-size: .8rem;
+        border-top: 1px solid rgba(255, 122, 0, 0.08);
+        font-size: 0.8rem;
         letter-spacing: 1px;
       }
 
-      /* ─── SLOT MACHINE (unchanged styles, trimmed) ─── */
-      #slot-machine-wrap * { box-sizing: border-box; }
+      /* ─── SLOT MACHINE ─── */
+      #slot-machine-wrap * {
+        box-sizing: border-box;
+      }
       #slot-machine-wrap {
         display: flex;
         flex-direction: column;
         align-items: center;
         padding: 60px 1rem;
-        background: rgba(255,122,0,0.02);
+        background: rgba(255, 122, 0, 0.02);
         border-top: 1px solid var(--orange-dim);
         border-bottom: 1px solid var(--orange-dim);
       }
@@ -600,7 +897,8 @@
         max-width: 460px;
         width: 100%;
         position: relative;
-        box-shadow: 0 0 40px rgba(255,122,0,0.25), 0 0 80px rgba(255,122,0,0.1);
+        box-shadow: 0 0 40px rgba(255, 122, 0, 0.25),
+          0 0 80px rgba(255, 122, 0, 0.1);
       }
       #slot-machine-wrap .sm-title {
         font-family: "Orbitron", monospace;
@@ -610,40 +908,248 @@
         letter-spacing: 4px;
         text-transform: uppercase;
         margin-bottom: 24px;
-        text-shadow: 0 0 12px rgba(255,122,0,0.8);
+        text-shadow: 0 0 12px rgba(255, 122, 0, 0.8);
       }
-      #slot-machine-wrap .sm-reels { display:flex; gap:10px; justify-content:center; margin-bottom:24px; position:relative; }
-      #slot-machine-wrap .sm-reel-window { width:106px; height:106px; background:#050505; border:2px solid rgba(255,122,0,0.5); border-radius:12px; overflow:hidden; position:relative; }
-      #slot-machine-wrap .sm-reel-window::before, #slot-machine-wrap .sm-reel-window::after { content:''; position:absolute; left:0; right:0; height:30px; z-index:5; pointer-events:none; }
-      #slot-machine-wrap .sm-reel-window::before { top:0; background:linear-gradient(to bottom,rgba(0,0,0,0.85),transparent); }
-      #slot-machine-wrap .sm-reel-window::after { bottom:0; background:linear-gradient(to top,rgba(0,0,0,0.85),transparent); }
-      #slot-machine-wrap .sm-reel-track { display:flex; flex-direction:column; align-items:center; position:absolute; width:100%; }
-      #slot-machine-wrap .sm-reel-item { width:106px; height:106px; display:flex; align-items:center; justify-content:center; font-size:52px; flex-shrink:0; }
-      #slot-machine-wrap .sm-payline { position:absolute; top:50%; left:-6px; right:-6px; height:2px; background:rgba(255,122,0,0.6); transform:translateY(-50%); z-index:10; pointer-events:none; }
-      #slot-machine-wrap .sm-payline.win { background:var(--orange); box-shadow:0 0 12px rgba(255,122,0,0.9); animation:smPaylinePulse 0.4s ease infinite alternate; }
-      @keyframes smPaylinePulse { from{box-shadow:0 0 8px rgba(255,122,0,0.7)} to{box-shadow:0 0 20px rgba(255,122,0,1),0 0 40px rgba(255,122,0,0.6)} }
-      #slot-machine-wrap .sm-credits-row { display:flex; gap:10px; margin-bottom:20px; }
-      #slot-machine-wrap .sm-credit-box { flex:1; background:#0a0a0a; border:1px solid rgba(255,122,0,0.3); border-radius:10px; padding:10px 14px; text-align:center; }
-      #slot-machine-wrap .sm-credit-label { font-size:10px; letter-spacing:2px; color:rgba(255,122,0,0.6); text-transform:uppercase; margin-bottom:4px; }
-      #slot-machine-wrap .sm-credit-value { font-family:"Orbitron",monospace; font-size:1.3rem; color:var(--orange); text-shadow:0 0 10px rgba(255,122,0,0.7); }
-      #slot-machine-wrap .sm-bet-row { display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:20px; }
-      #slot-machine-wrap .sm-bet-btn { background:transparent; border:1px solid rgba(255,122,0,0.4); color:var(--orange); border-radius:8px; width:36px; height:36px; font-size:18px; cursor:pointer; display:flex; align-items:center; justify-content:center; }
-      #slot-machine-wrap .sm-bet-btn:hover { border-color:var(--orange); box-shadow:0 0 8px rgba(255,122,0,0.4); }
-      #slot-machine-wrap .sm-bet-display { font-family:"Orbitron",monospace; color:var(--orange); font-size:.95rem; min-width:90px; text-align:center; }
-      #slot-machine-wrap .sm-spin-btn { width:100%; padding:16px; background:linear-gradient(135deg,#ff7a00,#e05500); border:none; border-radius:12px; color:#fff; font-family:"Orbitron",monospace; font-size:1rem; letter-spacing:3px; text-transform:uppercase; cursor:pointer; position:relative; overflow:hidden; box-shadow:0 0 20px rgba(255,122,0,0.4),0 4px 0 #8b3d00; }
-      #slot-machine-wrap .sm-spin-btn:not(:disabled):hover { box-shadow:0 0 30px rgba(255,122,0,0.7),0 4px 0 #8b3d00; }
-      #slot-machine-wrap .sm-spin-btn:not(:disabled):active { transform:translateY(2px); box-shadow:0 0 20px rgba(255,122,0,0.5),0 2px 0 #8b3d00; }
-      #slot-machine-wrap .sm-spin-btn:disabled { opacity:.6; cursor:not-allowed; }
-      #slot-machine-wrap .sm-message { text-align:center; margin-top:18px; min-height:28px; font-family:"Orbitron",monospace; font-size:.9rem; color:var(--orange); letter-spacing:2px; text-shadow:0 0 10px rgba(255,122,0,0.6); }
-      #slot-machine-wrap .sm-message.win-flash { animation:smWinPulse 0.5s ease infinite alternate; }
-      @keyframes smWinPulse { from{text-shadow:0 0 6px rgba(255,122,0,0.6)} to{text-shadow:0 0 20px rgba(255,122,0,1),0 0 40px rgba(255,122,0,0.8)} }
-      #slot-machine-wrap .sm-paytable { margin-top:20px; border-top:1px solid rgba(255,122,0,0.2); padding-top:16px; }
-      #slot-machine-wrap .sm-paytable-title { font-size:10px; letter-spacing:2px; color:rgba(255,122,0,0.5); text-transform:uppercase; text-align:center; margin-bottom:10px; }
-      #slot-machine-wrap .sm-paytable-grid { display:flex; flex-wrap:wrap; gap:6px; justify-content:center; }
-      #slot-machine-wrap .sm-pay-entry { background:#0a0a0a; border:1px solid rgba(255,122,0,0.2); border-radius:8px; padding:5px 10px; font-size:12px; color:rgba(255,122,0,0.7); white-space:nowrap; }
-      #slot-machine-wrap .sm-confetti-wrap { position:absolute; top:0; left:0; right:0; bottom:0; pointer-events:none; overflow:hidden; border-radius:18px; }
-      .sm-confetti-piece { position:absolute; width:8px; height:8px; opacity:0; border-radius:2px; }
-      @keyframes smConfettiFall { 0%{transform:translateY(-20px) rotate(0deg);opacity:1} 100%{transform:translateY(280px) rotate(720deg);opacity:0} }
+      #slot-machine-wrap .sm-reels {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-bottom: 24px;
+        position: relative;
+      }
+      #slot-machine-wrap .sm-reel-window {
+        width: 106px;
+        height: 106px;
+        background: #050505;
+        border: 2px solid rgba(255, 122, 0, 0.5);
+        border-radius: 12px;
+        overflow: hidden;
+        position: relative;
+      }
+      #slot-machine-wrap .sm-reel-window::before,
+      #slot-machine-wrap .sm-reel-window::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 30px;
+        z-index: 5;
+        pointer-events: none;
+      }
+      #slot-machine-wrap .sm-reel-window::before {
+        top: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.85),
+          transparent
+        );
+      }
+      #slot-machine-wrap .sm-reel-window::after {
+        bottom: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+      }
+      #slot-machine-wrap .sm-reel-track {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+      }
+      #slot-machine-wrap .sm-reel-item {
+        width: 106px;
+        height: 106px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 52px;
+        flex-shrink: 0;
+      }
+      #slot-machine-wrap .sm-payline {
+        position: absolute;
+        top: 50%;
+        left: -6px;
+        right: -6px;
+        height: 2px;
+        background: rgba(255, 122, 0, 0.6);
+        transform: translateY(-50%);
+        z-index: 10;
+        pointer-events: none;
+      }
+      #slot-machine-wrap .sm-payline.win {
+        background: var(--orange);
+        box-shadow: 0 0 12px rgba(255, 122, 0, 0.9);
+        animation: smPaylinePulse 0.4s ease infinite alternate;
+      }
+      @keyframes smPaylinePulse {
+        from {
+          box-shadow: 0 0 8px rgba(255, 122, 0, 0.7);
+        }
+        to {
+          box-shadow: 0 0 20px rgba(255, 122, 0, 1),
+            0 0 40px rgba(255, 122, 0, 0.6);
+        }
+      }
+      #slot-machine-wrap .sm-credits-row {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+      #slot-machine-wrap .sm-credit-box {
+        flex: 1;
+        background: #0a0a0a;
+        border: 1px solid rgba(255, 122, 0, 0.3);
+        border-radius: 10px;
+        padding: 10px 14px;
+        text-align: center;
+      }
+      #slot-machine-wrap .sm-credit-label {
+        font-size: 10px;
+        letter-spacing: 2px;
+        color: rgba(255, 122, 0, 0.6);
+        text-transform: uppercase;
+        margin-bottom: 4px;
+      }
+      #slot-machine-wrap .sm-credit-value {
+        font-family: "Orbitron", monospace;
+        font-size: 1.3rem;
+        color: var(--orange);
+        text-shadow: 0 0 10px rgba(255, 122, 0, 0.7);
+      }
+      #slot-machine-wrap .sm-bet-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 20px;
+      }
+      #slot-machine-wrap .sm-bet-btn {
+        background: transparent;
+        border: 1px solid rgba(255, 122, 0, 0.4);
+        color: var(--orange);
+        border-radius: 8px;
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      #slot-machine-wrap .sm-bet-btn:hover {
+        border-color: var(--orange);
+        box-shadow: 0 0 8px rgba(255, 122, 0, 0.4);
+      }
+      #slot-machine-wrap .sm-bet-display {
+        font-family: "Orbitron", monospace;
+        color: var(--orange);
+        font-size: 0.95rem;
+        min-width: 90px;
+        text-align: center;
+      }
+      #slot-machine-wrap .sm-spin-btn {
+        width: 100%;
+        padding: 16px;
+        background: linear-gradient(135deg, #ff7a00, #e05500);
+        border: none;
+        border-radius: 12px;
+        color: #fff;
+        font-family: "Orbitron", monospace;
+        font-size: 1rem;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(255, 122, 0, 0.4), 0 4px 0 #8b3d00;
+      }
+      #slot-machine-wrap .sm-spin-btn:not(:disabled):hover {
+        box-shadow: 0 0 30px rgba(255, 122, 0, 0.7), 0 4px 0 #8b3d00;
+      }
+      #slot-machine-wrap .sm-spin-btn:not(:disabled):active {
+        transform: translateY(2px);
+        box-shadow: 0 0 20px rgba(255, 122, 0, 0.5), 0 2px 0 #8b3d00;
+      }
+      #slot-machine-wrap .sm-spin-btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+      #slot-machine-wrap .sm-message {
+        text-align: center;
+        margin-top: 18px;
+        min-height: 28px;
+        font-family: "Orbitron", monospace;
+        font-size: 0.9rem;
+        color: var(--orange);
+        letter-spacing: 2px;
+        text-shadow: 0 0 10px rgba(255, 122, 0, 0.6);
+      }
+      #slot-machine-wrap .sm-message.win-flash {
+        animation: smWinPulse 0.5s ease infinite alternate;
+      }
+      @keyframes smWinPulse {
+        from {
+          text-shadow: 0 0 6px rgba(255, 122, 0, 0.6);
+        }
+        to {
+          text-shadow: 0 0 20px rgba(255, 122, 0, 1),
+            0 0 40px rgba(255, 122, 0, 0.8);
+        }
+      }
+      #slot-machine-wrap .sm-paytable {
+        margin-top: 20px;
+        border-top: 1px solid rgba(255, 122, 0, 0.2);
+        padding-top: 16px;
+      }
+      #slot-machine-wrap .sm-paytable-title {
+        font-size: 10px;
+        letter-spacing: 2px;
+        color: rgba(255, 122, 0, 0.5);
+        text-transform: uppercase;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      #slot-machine-wrap .sm-paytable-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        justify-content: center;
+      }
+      #slot-machine-wrap .sm-pay-entry {
+        background: #0a0a0a;
+        border: 1px solid rgba(255, 122, 0, 0.2);
+        border-radius: 8px;
+        padding: 5px 10px;
+        font-size: 12px;
+        color: rgba(255, 122, 0, 0.7);
+        white-space: nowrap;
+      }
+      #slot-machine-wrap .sm-confetti-wrap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        overflow: hidden;
+        border-radius: 18px;
+      }
+      .sm-confetti-piece {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        opacity: 0;
+        border-radius: 2px;
+      }
+      @keyframes smConfettiFall {
+        0% {
+          transform: translateY(-20px) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(280px) rotate(720deg);
+          opacity: 0;
+        }
+      }
     </style>
   </head>
   <body>
@@ -679,14 +1185,14 @@
     <div class="stats-strip stagger reveal">
       <div class="stat-item">
         <span class="stat-num" data-count="9">0</span>
-        <span class="stat-label">YouTube Features</span>
+        <span class="stat-label">Featured Longforms</span>
       </div>
       <div class="stat-item">
         <span class="stat-num" data-count="12">0</span>
         <span class="stat-label">TikToks Featured</span>
       </div>
       <div class="stat-item">
-        <span class="stat-num" data-count="3">0</span>
+        <span class="stat-num" data-count="6">0</span>
         <span class="stat-label">Major Brand Partners</span>
       </div>
       <div class="stat-item">
@@ -699,46 +1205,31 @@
     <section id="about" class="section">
       <h2 class="section-title reveal">About Me</h2>
       <div class="about-grid">
-        <!-- PHOTO — replace the src below with your real photo URL -->
         <div class="photo-frame reveal-left" id="photo-parallax">
-          <!--
-            ═══════════════════════════════════════════
-            HOW TO ADD YOUR PHOTO — 2 easy options:
-
-            OPTION A — Upload to a free host like imgur.com,
-            then paste the direct image URL (ending in .jpg/.png):
-
-            <img class="photo-img" src="https://i.imgur.com/YOUR_ID.jpg" alt="Harjyot Sohal" />
-
-            OPTION B — Use a local file path if hosting yourself:
-
-            <img class="photo-img" src="harjyot.jpg" alt="Harjyot Sohal" />
-
-            Delete the <div class="photo-placeholder">...</div>
-            below and paste one of the <img> lines above instead.
-            ═══════════════════════════════════════════
-          -->
-          <img class="photo-img" src="https://i.imgur.com/gvWReqg.png" alt="Harjyot Sohal" />
+          <img
+            class="photo-img"
+            src="https://i.imgur.com/gvWReqg.png"
+            alt="Harjyot Sohal"
+          />
         </div>
-        <!-- TEXT -->
         <div class="about-text reveal-right">
           <h2>The Person Behind the Edit</h2>
           <p>
-            I'm Harjyot Sohal — a video editor and motion graphics artist with a
+            I'm Harjyot Sohal, a video editor and motion graphics artist with a
             passion for cinematic storytelling. I believe every frame is an
             opportunity to make someone feel something, and I obsess over the
             details that most people never consciously notice.
           </p>
           <p>
             My work spans sports content, documentaries, branded campaigns, and
-            social-first video — always with the same commitment to pacing,
+            social-first video; always with the same commitment to pacing,
             emotion, and visual impact. I've shipped content for major brands
             including FanDuel, Miller Lite, and Captain Morgan through my time
             at OwnersBox.
           </p>
           <p>
-            Whether it's a 60-second TikTok or a multi-camera live broadcast,
-            I bring the same energy: intentional, fast, and built to land.
+            Whether it's a 60-second TikTok or a multi-camera live broadcast, I
+            bring the same energy: intentional, fast, and built to land.
           </p>
           <div class="skills-row">
             <span class="skill-tag">After Effects</span>
@@ -761,87 +1252,395 @@
       <!-- OwnersBox blurb -->
       <div class="ob-banner reveal">
         <div class="ob-label">OwnersBox Experience</div>
-        At OwnersBox, I worked across the full content pipeline — from pre-production
-        planning and technical setup through to live broadcast execution and post-production
-        delivery. I handled livestream setup and operation, ensuring stable, clean broadcasts
-        with coordinated on-screen graphics and real-time control of visual elements. A large
-        portion of my work supported high-visibility campaigns tied to major partners including
-        FanDuel, Miller Lite, and Captain Morgan.
+        At OwnersBox, I worked across the full content pipeline — from
+        pre-production planning and technical setup through to live broadcast
+        execution and post-production delivery. I handled livestream setup and
+        operation, ensuring stable, clean broadcasts with coordinated on-screen
+        graphics and real-time control of visual elements. A large portion of my
+        work supported high-visibility campaigns tied to major partners
+        including FanDuel, Miller Lite, and Captain Morgan.
       </div>
+    </section>
 
+    <!-- ─── BRAND WORK ─── -->
+    <section id="brand-work">
+      <div class="section">
+        <h2 class="section-title reveal">Brand Work</h2>
+
+        <!-- Brand pills -->
+        <div class="brand-logos stagger reveal">
+          <span class="brand-pill">FanDuel</span>
+          <span class="brand-pill">Gate 14</span>
+          <span class="brand-pill">Schneiders</span>
+          <span class="brand-pill">Miller Lite</span>
+          <span class="brand-pill">Captain Morgan</span>
+          <span class="brand-pill">OwnersBox</span>
+        </div>
+
+        <!-- Blurb -->
+        <div class="brand-blurb reveal">
+          Content I've had the privilege of editing for major brands including
+          <strong>FanDuel</strong>, <strong>Gate 14</strong>, and
+          <strong>Schneiders</strong> — each piece built to perform on social,
+          drive engagement, and make the brand impossible to ignore.
+        </div>
+
+        <!-- YouTube Shorts -->
+        <div class="brand-sub-label reveal">YouTube Shorts</div>
+        <div class="shorts-grid stagger">
+          <div class="short-card reveal-scale">
+            <iframe
+              src="https://www.youtube.com/embed/NPH9wLGeEnQ"
+              allowfullscreen
+              loading="lazy"
+              title="Brand Short 1"
+            ></iframe>
+          </div>
+          <div class="short-card reveal-scale">
+            <iframe
+              src="https://www.youtube.com/embed/MU6C4HeU5gI"
+              allowfullscreen
+              loading="lazy"
+              title="Brand Short 2"
+            ></iframe>
+          </div>
+          <div class="short-card reveal-scale">
+            <iframe
+              src="https://www.youtube.com/embed/Q4cXrSRuVWc"
+              allowfullscreen
+              loading="lazy"
+              title="Brand Short 3"
+            ></iframe>
+          </div>
+          <div class="short-card reveal-scale">
+            <iframe
+              src="https://www.youtube.com/embed/mt0F5Il3yWc"
+              allowfullscreen
+              loading="lazy"
+              title="Brand Short 4"
+            ></iframe>
+          </div>
+          <div class="short-card reveal-scale">
+            <iframe
+              src="https://www.youtube.com/embed/odi5nUfSDXs"
+              allowfullscreen
+              loading="lazy"
+              title="Brand Short 5"
+            ></iframe>
+          </div>
+          <div class="short-card reveal-scale">
+            <iframe
+              src="https://www.youtube.com/embed/ya_0DbgsY3E"
+              allowfullscreen
+              loading="lazy"
+              title="Brand Short 6"
+            ></iframe>
+          </div>
+          <div class="short-card reveal-scale">
+            <iframe
+              src="https://www.youtube.com/embed/FYT3ftUjrD4"
+              allowfullscreen
+              loading="lazy"
+              title="Brand Short 7"
+            ></iframe>
+          </div>
+          <div class="short-card reveal-scale">
+            <iframe
+              src="https://www.youtube.com/embed/wIEgYAyynjk"
+              allowfullscreen
+              loading="lazy"
+              title="Brand Short 8"
+            ></iframe>
+          </div>
+        </div>
+
+        <!-- TikToks -->
+        <div class="brand-sub-label reveal" style="margin-top: 48px">
+          TikToks
+        </div>
+        <div class="brand-tiktok-grid">
+          <div class="brand-tiktok-card reveal-scale">
+            <iframe
+              src="https://www.tiktok.com/embed/7613418421543341332"
+              frameborder="0"
+              allowfullscreen
+              loading="lazy"
+              title="Gate 14 TikTok 1"
+            ></iframe>
+          </div>
+          <div class="brand-tiktok-card reveal-scale">
+            <iframe
+              src="https://www.tiktok.com/embed/7616017410675526932"
+              frameborder="0"
+              allowfullscreen
+              loading="lazy"
+              title="Gate 14 TikTok 2"
+            ></iframe>
+          </div>
+          <div class="brand-tiktok-card reveal-scale">
+            <iframe
+              src="https://www.tiktok.com/embed/7615631020934614292"
+              frameborder="0"
+              allowfullscreen
+              loading="lazy"
+              title="Gate 14 TikTok 3"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ─── FEATURED VIDEOS ─── -->
+    <section class="section" style="padding-top: 80px">
       <h2 class="section-title reveal">Featured Videos</h2>
 
       <div class="grid stagger">
         <div class="video reveal-scale">
-          <iframe src="https://www.youtube.com/embed/fTzti0GLrwo" allowfullscreen loading="lazy"></iframe>
+          <iframe
+            src="https://www.youtube.com/embed/fTzti0GLrwo"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
           <h3>9 Innings, 9 Bets Challenge</h3>
         </div>
         <div class="video reveal-scale">
-          <iframe src="https://www.youtube.com/embed/l9CmlPzra7o" allowfullscreen loading="lazy"></iframe>
+          <iframe
+            src="https://www.youtube.com/embed/l9CmlPzra7o"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
           <h3>We Watched The College Football Team With No Fans</h3>
         </div>
         <div class="video reveal-scale">
-          <iframe src="https://www.youtube.com/embed/IPoisXMFPpA" allowfullscreen loading="lazy"></iframe>
+          <iframe
+            src="https://www.youtube.com/embed/IPoisXMFPpA"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
           <h3>We Flew To Seattle To Take Over T-Mobile Park</h3>
         </div>
         <div class="video reveal-scale">
-          <iframe src="https://www.youtube.com/embed/eR_E4AegVH8" allowfullscreen loading="lazy"></iframe>
+          <iframe
+            src="https://www.youtube.com/embed/eR_E4AegVH8"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
           <h3>We Watched College Football's Most Underrated Rivalry</h3>
         </div>
         <div class="video reveal-scale">
-          <iframe src="https://www.youtube.com/embed/XptxfQ3l-Ho" allowfullscreen loading="lazy"></iframe>
+          <iframe
+            src="https://www.youtube.com/embed/XptxfQ3l-Ho"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
           <h3>Dave Musket (A Marine's Story) - Short Documentary</h3>
         </div>
         <div class="video reveal-scale">
-          <iframe src="https://www.youtube.com/embed/tkYS3cg0fNc" allowfullscreen loading="lazy"></iframe>
+          <iframe
+            src="https://www.youtube.com/embed/tkYS3cg0fNc"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
           <h3>Only True Baseball Fans Can ACE This MLB Wordle</h3>
         </div>
         <div class="video reveal-scale">
-          <iframe src="https://www.youtube.com/embed/IpY5jl6t_uA" allowfullscreen loading="lazy"></iframe>
+          <iframe
+            src="https://www.youtube.com/embed/IpY5jl6t_uA"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
           <h3>We Went to the Sabres' First Playoff Game in 14 Years</h3>
         </div>
         <div class="video reveal-scale">
-          <iframe src="https://www.youtube.com/embed/T-80Qprx9M0" allowfullscreen loading="lazy"></iframe>
+          <iframe
+            src="https://www.youtube.com/embed/T-80Qprx9M0"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
           <h3>We Made An NCAA Football Geography Test</h3>
         </div>
         <div class="video reveal-scale">
-          <iframe src="https://www.youtube.com/embed/n60rtVdJApI" allowfullscreen loading="lazy"></iframe>
+          <iframe
+            src="https://www.youtube.com/embed/n60rtVdJApI"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
           <h3>Best Friends Play The Sports NEWLYWED Game</h3>
         </div>
       </div>
 
       <!-- TikToks -->
-      <h2 class="section-title reveal" style="margin-top:70px;">Featured TikToks</h2>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;justify-items:center;">
-        <div class="tiktok-wrapper reveal-scale"><iframe src="https://www.tiktok.com/embed/7311456027621330182" width="330" height="580" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
-        <div class="tiktok-wrapper reveal-scale"><iframe src="https://www.tiktok.com/embed/7311838689540181254" width="330" height="580" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
-        <div class="tiktok-wrapper reveal-scale"><iframe src="https://www.tiktok.com/embed/7512559727805533470" width="330" height="580" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
-        <div class="tiktok-wrapper reveal-scale"><iframe src="https://www.tiktok.com/embed/7491012560657894702" width="330" height="580" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
-        <div class="tiktok-wrapper reveal-scale"><iframe src="https://www.tiktok.com/embed/7313281518946766085" width="330" height="580" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
-        <div class="tiktok-wrapper reveal-scale"><iframe src="https://www.tiktok.com/embed/7609755936412192021" width="330" height="580" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
-        <div class="tiktok-wrapper reveal-scale"><iframe src="https://www.tiktok.com/embed/7632686802767269140" width="330" height="580" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
-        <div class="tiktok-wrapper reveal-scale"><iframe src="https://www.tiktok.com/embed/7626000582255414548" width="330" height="580" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
-        <div class="tiktok-wrapper reveal-scale"><iframe src="https://www.tiktok.com/embed/7627139804647410964" width="330" height="580" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
-        <div class="tiktok-wrapper reveal-scale"><iframe src="https://www.tiktok.com/embed/7619716122346245396" width="330" height="580" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
-        <div class="tiktok-wrapper reveal-scale"><iframe src="https://www.tiktok.com/embed/7599327649525288212" width="330" height="580" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
-        <div class="tiktok-wrapper reveal-scale"><iframe src="https://www.tiktok.com/embed/7615330939341737237" width="330" height="580" frameborder="0" allowfullscreen loading="lazy"></iframe></div>
+      <h2 class="section-title reveal" style="margin-top: 70px">
+        Featured TikToks
+      </h2>
+      <div
+        style="
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 24px;
+          justify-items: center;
+        "
+      >
+        <div class="tiktok-wrapper reveal-scale">
+          <iframe
+            src="https://www.tiktok.com/embed/7311456027621330182"
+            width="330"
+            height="580"
+            frameborder="0"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+        <div class="tiktok-wrapper reveal-scale">
+          <iframe
+            src="https://www.tiktok.com/embed/7311838689540181254"
+            width="330"
+            height="580"
+            frameborder="0"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+        <div class="tiktok-wrapper reveal-scale">
+          <iframe
+            src="https://www.tiktok.com/embed/7512559727805533470"
+            width="330"
+            height="580"
+            frameborder="0"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+        <div class="tiktok-wrapper reveal-scale">
+          <iframe
+            src="https://www.tiktok.com/embed/7491012560657894702"
+            width="330"
+            height="580"
+            frameborder="0"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+        <div class="tiktok-wrapper reveal-scale">
+          <iframe
+            src="https://www.tiktok.com/embed/7313281518946766085"
+            width="330"
+            height="580"
+            frameborder="0"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+        <div class="tiktok-wrapper reveal-scale">
+          <iframe
+            src="https://www.tiktok.com/embed/7609755936412192021"
+            width="330"
+            height="580"
+            frameborder="0"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+        <div class="tiktok-wrapper reveal-scale">
+          <iframe
+            src="https://www.tiktok.com/embed/7632686802767269140"
+            width="330"
+            height="580"
+            frameborder="0"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+        <div class="tiktok-wrapper reveal-scale">
+          <iframe
+            src="https://www.tiktok.com/embed/7626000582255414548"
+            width="330"
+            height="580"
+            frameborder="0"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+        <div class="tiktok-wrapper reveal-scale">
+          <iframe
+            src="https://www.tiktok.com/embed/7627139804647410964"
+            width="330"
+            height="580"
+            frameborder="0"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+        <div class="tiktok-wrapper reveal-scale">
+          <iframe
+            src="https://www.tiktok.com/embed/7619716122346245396"
+            width="330"
+            height="580"
+            frameborder="0"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+        <div class="tiktok-wrapper reveal-scale">
+          <iframe
+            src="https://www.tiktok.com/embed/7599327649525288212"
+            width="330"
+            height="580"
+            frameborder="0"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+        <div class="tiktok-wrapper reveal-scale">
+          <iframe
+            src="https://www.tiktok.com/embed/7615330939341737237"
+            width="330"
+            height="580"
+            frameborder="0"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
       </div>
 
       <!-- Motion Graphics -->
-      <h2 class="section-title reveal" style="margin-top:40px;">Motion Graphics</h2>
+      <h2 class="section-title reveal" style="margin-top: 40px">
+        Motion Graphics
+      </h2>
       <div class="hero-video reveal">
-        <iframe width="100%" height="500"
+        <iframe
+          width="100%"
+          height="500"
           src="https://www.youtube.com/embed/U_Ax2DnKPhk?autoplay=1&mute=1&loop=1&playlist=U_Ax2DnKPhk"
-          title="Featured Video" frameborder="0"
+          title="Featured Video"
+          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
+          allowfullscreen
+        ></iframe>
       </div>
-      <div class="hero-video reveal" style="margin-top:24px;">
-        <iframe width="100%" height="500"
-          src="https://www.youtube.com/embed/-f6BHV3qTJ4?autoplay=1&mute=1&loop=1&playlist=-f6BHV3qTJ4"
-          title="Harjyot Video" frameborder="0"
+      <div class="hero-video reveal">
+        <iframe
+          width="100%"
+          height="500"
+          src="https://www.youtube.com/embed/9pTiqu-tx_w?autoplay=1&mute=1&loop=1&playlist=9pTiqu-tx_w"
+          title="Featured Video"
+          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen></iframe>
+          allowfullscreen
+        ></iframe>
+      </div>
+      <div class="hero-video reveal" style="margin-top: 24px">
+        <iframe
+          width="100%"
+          height="500"
+          src="https://www.youtube.com/embed/-f6BHV3qTJ4?autoplay=1&mute=1&loop=1&playlist=-f6BHV3qTJ4"
+          title="Harjyot Video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
       </div>
     </section>
 
@@ -851,13 +1650,31 @@
         <div class="sm-confetti-wrap" id="sm-confetti"></div>
         <div class="sm-title">★ Harj N Puff Gold Blitz ★</div>
         <div class="sm-credits-row">
-          <div class="sm-credit-box"><div class="sm-credit-label">Credits</div><div class="sm-credit-value" id="sm-credits">100</div></div>
-          <div class="sm-credit-box"><div class="sm-credit-label">Last Win</div><div class="sm-credit-value" id="sm-last-win">0</div></div>
+          <div class="sm-credit-box">
+            <div class="sm-credit-label">Credits</div>
+            <div class="sm-credit-value" id="sm-credits">100</div>
+          </div>
+          <div class="sm-credit-box">
+            <div class="sm-credit-label">Last Win</div>
+            <div class="sm-credit-value" id="sm-last-win">0</div>
+          </div>
         </div>
         <div class="sm-reels" id="sm-reels-container">
-          <div class="sm-reel-window"><div class="sm-reel-track" id="sm-reel-0"><div class="sm-reel-item">🍒</div></div></div>
-          <div class="sm-reel-window"><div class="sm-reel-track" id="sm-reel-1"><div class="sm-reel-item">🍒</div></div></div>
-          <div class="sm-reel-window"><div class="sm-reel-track" id="sm-reel-2"><div class="sm-reel-item">🍒</div></div></div>
+          <div class="sm-reel-window">
+            <div class="sm-reel-track" id="sm-reel-0">
+              <div class="sm-reel-item">🍒</div>
+            </div>
+          </div>
+          <div class="sm-reel-window">
+            <div class="sm-reel-track" id="sm-reel-1">
+              <div class="sm-reel-item">🍒</div>
+            </div>
+          </div>
+          <div class="sm-reel-window">
+            <div class="sm-reel-track" id="sm-reel-2">
+              <div class="sm-reel-item">🍒</div>
+            </div>
+          </div>
           <div class="sm-payline" id="sm-payline"></div>
         </div>
         <div class="sm-bet-row">
@@ -886,105 +1703,297 @@
     <!-- ─── CONTACT ─── -->
     <section id="contact" class="section">
       <h2 class="section-title reveal">Contact</h2>
-      <div style="text-align:center;">
+      <div style="text-align: center">
         <div class="contact-card reveal">
           <p>Let's create something great together.</p>
-          <p style="margin-top:18px; font-size:.95rem;">
-            Email: <a href="mailto:sohalharjyot@gmail.com">sohalharjyot@gmail.com</a>
-            <a href="https://www.linkedin.com/in/harjyot-sohal-07366a95/">LinkedIn</a>
+          <p style="margin-top: 18px; font-size: 0.95rem">
+            Email:
+            <a href="mailto:sohalharjyot@gmail.com">sohalharjyot@gmail.com</a>
+            &nbsp;·&nbsp;
+            <a href="https://www.linkedin.com/in/harjyot-sohal-07366a95/"
+              >LinkedIn</a
+            >
           </p>
         </div>
       </div>
     </section>
 
-    <footer>© 2026 Harjyot Sohal — Video Editor & Motion Graphics Artist</footer>
+    <footer>
+      © 2026 Harjyot Sohal — Video Editor & Motion Graphics Artist
+    </footer>
 
     <script>
-    // ─── CURSOR ───
-    const cur = document.getElementById('cursor');
-    const ring = document.getElementById('cursor-ring');
-    let mx=0, my=0, rx=0, ry=0;
-    document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cur.style.left=mx+'px'; cur.style.top=my+'px'; });
-    (function loop() { rx+=(mx-rx)*.12; ry+=(my-ry)*.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(loop); })();
-    document.querySelectorAll('a,button,.video,.tiktok-wrapper,.skill-tag').forEach(el=>{
-      el.addEventListener('mouseenter',()=>{ cur.style.width='20px'; cur.style.height='20px'; ring.style.width='60px'; ring.style.height='60px'; });
-      el.addEventListener('mouseleave',()=>{ cur.style.width='12px'; cur.style.height='12px'; ring.style.width='36px'; ring.style.height='36px'; });
-    });
-
-    // ─── SCROLL PROGRESS ───
-    const prog = document.getElementById('scroll-progress');
-    const hdr  = document.getElementById('site-header');
-    window.addEventListener('scroll', () => {
-      const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
-      prog.style.width = pct + '%';
-      hdr.classList.toggle('scrolled', window.scrollY > 60);
-    });
-
-    // ─── SMOOTH SCROLL ───
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click', e => {
-        e.preventDefault();
-        const t = document.querySelector(a.getAttribute('href'));
-        if(t) t.scrollIntoView({ behavior:'smooth' });
+      // ─── CURSOR ───
+      const cur = document.getElementById("cursor");
+      const ring = document.getElementById("cursor-ring");
+      let mx = 0,
+        my = 0,
+        rx = 0,
+        ry = 0;
+      document.addEventListener("mousemove", (e) => {
+        mx = e.clientX;
+        my = e.clientY;
+        cur.style.left = mx + "px";
+        cur.style.top = my + "px";
       });
-    });
+      (function loop() {
+        rx += (mx - rx) * 0.12;
+        ry += (my - ry) * 0.12;
+        ring.style.left = rx + "px";
+        ring.style.top = ry + "px";
+        requestAnimationFrame(loop);
+      })();
+      document
+        .querySelectorAll(
+          "a,button,.video,.tiktok-wrapper,.skill-tag,.short-card,.brand-tiktok-card,.brand-pill"
+        )
+        .forEach((el) => {
+          el.addEventListener("mouseenter", () => {
+            cur.style.width = "20px";
+            cur.style.height = "20px";
+            ring.style.width = "60px";
+            ring.style.height = "60px";
+          });
+          el.addEventListener("mouseleave", () => {
+            cur.style.width = "12px";
+            cur.style.height = "12px";
+            ring.style.width = "36px";
+            ring.style.height = "36px";
+          });
+        });
 
-    // ─── INTERSECTION OBSERVER (reveal) ───
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          // count-up numbers
-          entry.target.querySelectorAll('[data-count]').forEach(el => {
-            const target = +el.dataset.count;
-            let cur = 0;
-            const step = () => {
-              cur = Math.min(cur+1, target);
-              el.textContent = cur + (target > 10 ? '' : '');
-              if(cur < target) requestAnimationFrame(step);
-            };
-            step();
+      // ─── SCROLL PROGRESS ───
+      const prog = document.getElementById("scroll-progress");
+      const hdr = document.getElementById("site-header");
+      window.addEventListener("scroll", () => {
+        const pct =
+          (window.scrollY / (document.body.scrollHeight - window.innerHeight)) *
+          100;
+        prog.style.width = pct + "%";
+        hdr.classList.toggle("scrolled", window.scrollY > 60);
+      });
+
+      // ─── SMOOTH SCROLL ───
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          e.preventDefault();
+          const t = document.querySelector(a.getAttribute("href"));
+          if (t) t.scrollIntoView({ behavior: "smooth" });
+        });
+      });
+
+      // ─── INTERSECTION OBSERVER (reveal) ───
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              entry.target.querySelectorAll("[data-count]").forEach((el) => {
+                const target = +el.dataset.count;
+                let cur = 0;
+                const step = () => {
+                  cur = Math.min(cur + 1, target);
+                  el.textContent = cur + (target > 10 ? "" : "");
+                  if (cur < target) requestAnimationFrame(step);
+                };
+                step();
+              });
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      document
+        .querySelectorAll(
+          ".reveal,.reveal-left,.reveal-right,.reveal-scale,.stagger"
+        )
+        .forEach((el) => observer.observe(el));
+
+      // ─── PHOTO PARALLAX ───
+      const photoEl = document.getElementById("photo-parallax");
+      window.addEventListener("scroll", () => {
+        if (!photoEl) return;
+        const rect = photoEl.getBoundingClientRect();
+        const center = rect.top + rect.height / 2 - window.innerHeight / 2;
+        const shift = center * 0.04;
+        photoEl.style.transform = `translateY(${shift}px)`;
+      });
+
+      // ─── SLOT MACHINE ───
+      (function () {
+        const SYMBOLS = [
+          "🍒",
+          "🍒",
+          "🍒",
+          "🍇",
+          "🍇",
+          "🍋",
+          "🍋",
+          "🔔",
+          "⭐",
+          "7️⃣",
+          "💎",
+        ];
+        const PAYOUTS = {
+          "💎💎💎": 50,
+          "7️⃣7️⃣7️⃣": 20,
+          "⭐⭐⭐": 15,
+          "🔔🔔🔔": 10,
+          "🍋🍋🍋": 8,
+          "🍇🍇🍇": 6,
+          "🍒🍒🍒": 4,
+        };
+        let credits = 100,
+          bet = 5,
+          spinning = false;
+        const creditsEl = document.getElementById("sm-credits");
+        const lastWinEl = document.getElementById("sm-last-win");
+        const betDisplay = document.getElementById("sm-bet-display");
+        const spinBtn = document.getElementById("sm-spin-btn");
+        const messageEl = document.getElementById("sm-message");
+        const payline = document.getElementById("sm-payline");
+        const confettiEl = document.getElementById("sm-confetti");
+        function rand() {
+          return SYMBOLS[Math.floor(Math.random() * SYMBOLS.length)];
+        }
+        function updateBet() {
+          betDisplay.textContent = "BET: " + bet;
+        }
+        document.getElementById("sm-bet-down").addEventListener("click", () => {
+          if (!spinning && bet > 1) {
+            bet = bet <= 5 ? bet - 1 : bet - 5;
+            updateBet();
+          }
+        });
+        document.getElementById("sm-bet-up").addEventListener("click", () => {
+          if (!spinning) {
+            const max = Math.min(credits, 50);
+            if (bet < max) {
+              bet = bet < 5 ? bet + 1 : Math.min(bet + 5, max);
+              updateBet();
+            }
+          }
+        });
+        function buildTrack(id, symbols) {
+          const t = document.getElementById(id);
+          t.innerHTML = "";
+          symbols.forEach((s) => {
+            const d = document.createElement("div");
+            d.className = "sm-reel-item";
+            d.textContent = s;
+            t.appendChild(d);
+          });
+          t.style.top = "0px";
+        }
+        function animateReel(id, finalSym, duration, delay) {
+          return new Promise((resolve) => {
+            const len = 24,
+              syms = [];
+            for (let i = 0; i < len - 1; i++) syms.push(rand());
+            syms.push(finalSym);
+            buildTrack(id, syms);
+            const itemH = 106,
+              total = (len - 1) * itemH;
+            const start = performance.now() + delay;
+            function easeOut(t) {
+              return 1 - Math.pow(1 - t, 3);
+            }
+            function frame(now) {
+              if (now < start) {
+                requestAnimationFrame(frame);
+                return;
+              }
+              const t = Math.min((now - start) / duration, 1);
+              document.getElementById(id).style.top =
+                -(easeOut(t) * total) + "px";
+              if (t < 1) requestAnimationFrame(frame);
+              else {
+                document.getElementById(id).style.top =
+                  -((len - 1) * itemH) + "px";
+                resolve();
+              }
+            }
+            requestAnimationFrame(frame);
           });
         }
-      });
-    }, { threshold: 0.15 });
-
-    document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale,.stagger').forEach(el => observer.observe(el));
-
-    // ─── PHOTO PARALLAX ───
-    const photoEl = document.getElementById('photo-parallax');
-    window.addEventListener('scroll', () => {
-      if(!photoEl) return;
-      const rect = photoEl.getBoundingClientRect();
-      const center = rect.top + rect.height/2 - window.innerHeight/2;
-      const shift = center * 0.04;
-      photoEl.style.transform = `translateY(${shift}px)`;
-    });
-
-    // ─── SLOT MACHINE ───
-    (function(){
-      const SYMBOLS=['🍒','🍒','🍒','🍇','🍇','🍋','🍋','🔔','⭐','7️⃣','💎'];
-      const PAYOUTS={'💎💎💎':50,'7️⃣7️⃣7️⃣':20,'⭐⭐⭐':15,'🔔🔔🔔':10,'🍋🍋🍋':8,'🍇🍇🍇':6,'🍒🍒🍒':4};
-      let credits=100,bet=5,spinning=false;
-      const creditsEl=document.getElementById('sm-credits');
-      const lastWinEl=document.getElementById('sm-last-win');
-      const betDisplay=document.getElementById('sm-bet-display');
-      const spinBtn=document.getElementById('sm-spin-btn');
-      const messageEl=document.getElementById('sm-message');
-      const payline=document.getElementById('sm-payline');
-      const confettiEl=document.getElementById('sm-confetti');
-      function rand(){return SYMBOLS[Math.floor(Math.random()*SYMBOLS.length)];}
-      function updateBet(){betDisplay.textContent='BET: '+bet;}
-      document.getElementById('sm-bet-down').addEventListener('click',()=>{if(!spinning&&bet>1){bet=bet<=5?bet-1:bet-5;updateBet();}});
-      document.getElementById('sm-bet-up').addEventListener('click',()=>{if(!spinning){const max=Math.min(credits,50);if(bet<max){bet=bet<5?bet+1:Math.min(bet+5,max);updateBet();}}});
-      function buildTrack(id,symbols){const t=document.getElementById(id);t.innerHTML='';symbols.forEach(s=>{const d=document.createElement('div');d.className='sm-reel-item';d.textContent=s;t.appendChild(d);});t.style.top='0px';}
-      function animateReel(id,finalSym,duration,delay){return new Promise(resolve=>{const len=24;const syms=[];for(let i=0;i<len-1;i++)syms.push(rand());syms.push(finalSym);buildTrack(id,syms);const itemH=106,total=(len-1)*itemH;const start=performance.now()+delay;function easeOut(t){return 1-Math.pow(1-t,3);}function frame(now){if(now<start){requestAnimationFrame(frame);return;}const t=Math.min((now-start)/duration,1);document.getElementById(id).style.top=-(easeOut(t)*total)+'px';if(t<1)requestAnimationFrame(frame);else{document.getElementById(id).style.top=-((len-1)*itemH)+'px';resolve();}}requestAnimationFrame(frame);});}
-      function fireConfetti(){confettiEl.innerHTML='';const colors=['#ff7a00','#ffb347','#fff','#ffd700','#ff4500'];for(let i=0;i<30;i++){const p=document.createElement('div');p.className='sm-confetti-piece';p.style.cssText=`left:${Math.random()*100}%;top:${Math.random()*20}%;background:${colors[Math.floor(Math.random()*colors.length)]};animation:smConfettiFall ${0.8+Math.random()*0.8}s ${Math.random()*0.4}s ease-in forwards`;confettiEl.appendChild(p);}setTimeout(()=>confettiEl.innerHTML='',2000);}
-      function setMsg(text,win){messageEl.textContent=text;messageEl.className='sm-message'+(win?' win-flash':'');}
-      async function spin(){if(spinning||credits<bet)return;spinning=true;spinBtn.disabled=true;payline.classList.remove('win');setMsg('Spinning...',false);credits-=bet;creditsEl.textContent=credits;lastWinEl.textContent=0;const results=[rand(),rand(),rand()];await Promise.all([animateReel('sm-reel-0',results[0],900,0),animateReel('sm-reel-1',results[1],1050,120),animateReel('sm-reel-2',results[2],1200,240)]);const key=results.join('');const mult=PAYOUTS[key];let win=0;if(mult){win=bet*mult;credits+=win;creditsEl.textContent=credits;lastWinEl.textContent=win;payline.classList.add('win');fireConfetti();setMsg(mult>=20?'JACKPOT! +'+win:mult>=10?'BIG WIN! +'+win:'YOU WIN! +'+win,true);}else{const u=new Set(results);if(u.size<=2){win=bet;credits+=win;creditsEl.textContent=credits;lastWinEl.textContent=win;setMsg('Almost! +'+win,false);}else setMsg('Try again!',false);}if(credits<=0){credits=100;creditsEl.textContent=credits;setMsg('Reloaded 100 credits!',false);}spinning=false;spinBtn.disabled=false;}
-      spinBtn.addEventListener('click',spin);
-      buildTrack('sm-reel-0',['🍒']);buildTrack('sm-reel-1',['🍒']);buildTrack('sm-reel-2',['🍒']);
-    })();
+        function fireConfetti() {
+          confettiEl.innerHTML = "";
+          const colors = ["#ff7a00", "#ffb347", "#fff", "#ffd700", "#ff4500"];
+          for (let i = 0; i < 30; i++) {
+            const p = document.createElement("div");
+            p.className = "sm-confetti-piece";
+            p.style.cssText = `left:${Math.random() * 100}%;top:${
+              Math.random() * 20
+            }%;background:${
+              colors[Math.floor(Math.random() * colors.length)]
+            };animation:smConfettiFall ${0.8 + Math.random() * 0.8}s ${
+              Math.random() * 0.4
+            }s ease-in forwards`;
+            confettiEl.appendChild(p);
+          }
+          setTimeout(() => (confettiEl.innerHTML = ""), 2000);
+        }
+        function setMsg(text, win) {
+          messageEl.textContent = text;
+          messageEl.className = "sm-message" + (win ? " win-flash" : "");
+        }
+        async function spin() {
+          if (spinning || credits < bet) return;
+          spinning = true;
+          spinBtn.disabled = true;
+          payline.classList.remove("win");
+          setMsg("Spinning...", false);
+          credits -= bet;
+          creditsEl.textContent = credits;
+          lastWinEl.textContent = 0;
+          const results = [rand(), rand(), rand()];
+          await Promise.all([
+            animateReel("sm-reel-0", results[0], 900, 0),
+            animateReel("sm-reel-1", results[1], 1050, 120),
+            animateReel("sm-reel-2", results[2], 1200, 240),
+          ]);
+          const key = results.join("");
+          const mult = PAYOUTS[key];
+          let win = 0;
+          if (mult) {
+            win = bet * mult;
+            credits += win;
+            creditsEl.textContent = credits;
+            lastWinEl.textContent = win;
+            payline.classList.add("win");
+            fireConfetti();
+            setMsg(
+              mult >= 20
+                ? "JACKPOT! +" + win
+                : mult >= 10
+                ? "BIG WIN! +" + win
+                : "YOU WIN! +" + win,
+              true
+            );
+          } else {
+            const u = new Set(results);
+            if (u.size <= 2) {
+              win = bet;
+              credits += win;
+              creditsEl.textContent = credits;
+              lastWinEl.textContent = win;
+              setMsg("Almost! +" + win, false);
+            } else setMsg("Try again!", false);
+          }
+          if (credits <= 0) {
+            credits = 100;
+            creditsEl.textContent = credits;
+            setMsg("Reloaded 100 credits!", false);
+          }
+          spinning = false;
+          spinBtn.disabled = false;
+        }
+        spinBtn.addEventListener("click", spin);
+        buildTrack("sm-reel-0", ["🍒"]);
+        buildTrack("sm-reel-1", ["🍒"]);
+        buildTrack("sm-reel-2", ["🍒"]);
+      })();
     </script>
   </body>
 </html>
