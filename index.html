@@ -1150,6 +1150,137 @@
           opacity: 0;
         }
       }
+
+      /* ─── GRAPHIC DESIGN ─── */
+      #graphic-design {
+        background: rgba(255, 122, 0, 0.02);
+        border-top: 1px solid var(--orange-dim);
+        border-bottom: 1px solid var(--orange-dim);
+        padding: 80px 0;
+      }
+      #graphic-design .section {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+      .gd-blurb {
+        max-width: 820px;
+        margin: 0 auto 52px auto;
+        padding: 26px 36px;
+        text-align: center;
+        color: #bbb;
+        line-height: 1.75;
+        font-size: 0.95rem;
+        background: rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(255, 122, 0, 0.22);
+        border-radius: 12px;
+        box-shadow: 0 0 30px rgba(255, 122, 0, 0.08);
+        position: relative;
+        overflow: hidden;
+      }
+      .gd-blurb::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--orange),
+          transparent
+        );
+        opacity: 0.6;
+      }
+      .gd-blurb strong {
+        color: var(--orange);
+        font-weight: 600;
+      }
+      .gd-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+      @media (max-width: 768px) {
+        .gd-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .gd-card {
+        border: 2px solid rgba(255, 122, 0, 0.2);
+        border-radius: 12px;
+        overflow: hidden;
+        background: var(--card);
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s;
+        position: relative;
+        cursor: pointer;
+      }
+      .gd-card:hover {
+        transform: scale(1.03) translateY(-5px);
+        box-shadow: 0 16px 48px rgba(255, 122, 0, 0.45);
+        border-color: var(--orange);
+      }
+      .gd-card img {
+        width: 100%;
+        display: block;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        transition: filter 0.4s;
+        filter: brightness(0.92) contrast(1.05);
+      }
+      .gd-card:hover img {
+        filter: brightness(1) contrast(1.1);
+      }
+      .gd-card-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(255, 122, 0, 0.18) 0%,
+          transparent 60%
+        );
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .gd-card:hover .gd-card-overlay {
+        opacity: 1;
+      }
+      /* Lightbox */
+      #gd-lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.92);
+        z-index: 9000;
+        align-items: center;
+        justify-content: center;
+        cursor: zoom-out;
+        backdrop-filter: blur(6px);
+      }
+      #gd-lightbox.active {
+        display: flex;
+      }
+      #gd-lightbox img {
+        max-width: 90vw;
+        max-height: 88vh;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 122, 0, 0.4);
+        box-shadow: 0 0 60px rgba(255, 122, 0, 0.3);
+        object-fit: contain;
+      }
+      #gd-lightbox-close {
+        position: absolute;
+        top: 24px;
+        right: 32px;
+        font-size: 2rem;
+        color: var(--orange);
+        cursor: pointer;
+        line-height: 1;
+        transition: text-shadow 0.2s;
+      }
+      #gd-lightbox-close:hover {
+        text-shadow: 0 0 16px var(--orange);
+      }
     </style>
   </head>
   <body>
@@ -1463,11 +1594,15 @@
         </div>
         <div class="video reveal-scale">
           <iframe
-            src="https://www.youtube.com/embed/n60rtVdJApI"
+            src="https://www.youtube.com/embed/8qOFchKirEo?si=z5WihoSMTLZBoFwF"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
             loading="lazy"
           ></iframe>
-          <h3>Best Friends Play The Sports NEWLYWED Game</h3>
+          <h3>Can We Score on a PROFESSIONAL Goalkeeper?!</h3>
         </div>
       </div>
 
@@ -1643,6 +1778,64 @@
         ></iframe>
       </div>
     </section>
+
+    <!-- ─── GRAPHIC DESIGN ─── -->
+    <section id="graphic-design">
+      <div class="section">
+        <h2 class="section-title reveal">Graphic Design</h2>
+
+        <div class="gd-blurb reveal">
+          Beyond motion and editing, I bring a strong eye for
+          <strong>visual composition, typography, and design</strong>. These
+          pieces showcase my ability to craft polished, intentional graphics —
+          built with the same attention to detail I bring to every frame.
+        </div>
+
+        <div class="gd-grid stagger">
+          <div
+            class="gd-card reveal-scale"
+            onclick="openLightbox('https://i.imgur.com/0s3JJ5G.jpeg')"
+          >
+            <img
+              src="https://i.imgur.com/0s3JJ5G.jpeg"
+              alt="Graphic Design Work 1"
+              loading="lazy"
+            />
+            <div class="gd-card-overlay"></div>
+          </div>
+          <div
+            class="gd-card reveal-scale"
+            onclick="openLightbox('https://i.imgur.com/bftxvxW.png')"
+          >
+            <img
+              src="https://i.imgur.com/bftxvxW.png"
+              alt="Graphic Design Work 2"
+              loading="lazy"
+            />
+            <div class="gd-card-overlay"></div>
+          </div>
+          <div
+            class="gd-card reveal-scale"
+            onclick="openLightbox('https://i.imgur.com/yWRGYo6.jpeg')"
+          >
+            <img
+              src="https://i.imgur.com/yWRGYo6.jpeg"
+              alt="Graphic Design Work 3"
+              loading="lazy"
+            />
+            <div class="gd-card-overlay"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="gd-lightbox" onclick="closeLightbox()">
+      <span id="gd-lightbox-close" onclick="closeLightbox()">&#x2715;</span>
+      <img id="gd-lightbox-img" src="" alt="Graphic design enlarged" />
+    </div>
+
+    <div class="divider"></div>
 
     <!-- ─── SLOT MACHINE ─── -->
     <div id="slot-machine-wrap">
@@ -1994,6 +2187,21 @@
         buildTrack("sm-reel-1", ["🍒"]);
         buildTrack("sm-reel-2", ["🍒"]);
       })();
+      // ─── GRAPHIC DESIGN LIGHTBOX ───
+      function openLightbox(src) {
+        const lb = document.getElementById("gd-lightbox");
+        document.getElementById("gd-lightbox-img").src = src;
+        lb.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+      function closeLightbox() {
+        document.getElementById("gd-lightbox").classList.remove("active");
+        document.getElementById("gd-lightbox-img").src = "";
+        document.body.style.overflow = "";
+      }
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeLightbox();
+      });
     </script>
   </body>
 </html>
