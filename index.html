@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Harjyot Sohal</title>
+    <link rel="icon" type="image/png" href="https://i.imgur.com/3xsXvWR.png" />
     <link
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@300;400;600&display=swap"
       rel="stylesheet"
@@ -41,36 +42,6 @@
         color: #eee;
         font-family: "Inter", sans-serif;
         overflow-x: hidden;
-        cursor: none;
-      }
-
-      /* ─── CUSTOM CURSOR ─── */
-      #cursor {
-        position: fixed;
-        width: 12px;
-        height: 12px;
-        background: var(--orange);
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 9999;
-        transform: translate(-50%, -50%);
-        transition: width 0.15s, height 0.15s, opacity 0.15s;
-        box-shadow: 0 0 12px var(--orange-glow);
-        mix-blend-mode: screen;
-      }
-      #cursor-ring {
-        position: fixed;
-        width: 36px;
-        height: 36px;
-        border: 1px solid rgba(255, 122, 0, 0.5);
-        border-radius: 50%;
-        pointer-events: none;
-        z-index: 9998;
-        transform: translate(-50%, -50%);
-        transition: transform 0.08s ease, width 0.2s, height 0.2s;
-      }
-      body:hover #cursor {
-        opacity: 1;
       }
 
       /* ─── NOISE OVERLAY ─── */
@@ -1284,8 +1255,6 @@
     </style>
   </head>
   <body>
-    <div id="cursor"></div>
-    <div id="cursor-ring"></div>
     <div id="scroll-progress"></div>
 
     <header id="site-header">
@@ -1562,11 +1531,11 @@
         </div>
         <div class="video reveal-scale">
           <iframe
-            src="https://www.youtube.com/embed/XptxfQ3l-Ho"
+            src="https://www.youtube.com/embed/ZnN6zB0OhEY"
             allowfullscreen
             loading="lazy"
           ></iframe>
-          <h3>Dave Musket (A Marine's Story) - Short Documentary</h3>
+          <h3>Blue Jays Midseason Update w/ Keegan Matheson</h3>
         </div>
         <div class="video reveal-scale">
           <iframe
@@ -1783,14 +1752,12 @@
     <section id="graphic-design">
       <div class="section">
         <h2 class="section-title reveal">Graphic Design</h2>
-
         <div class="gd-blurb reveal">
           Beyond motion and editing, I bring a strong eye for
           <strong>visual composition, typography, and design</strong>. These
           pieces showcase my ability to craft polished, intentional graphics —
           built with the same attention to detail I bring to every frame.
         </div>
-
         <div class="gd-grid stagger">
           <div
             class="gd-card reveal-scale"
@@ -1916,45 +1883,6 @@
     </footer>
 
     <script>
-      // ─── CURSOR ───
-      const cur = document.getElementById("cursor");
-      const ring = document.getElementById("cursor-ring");
-      let mx = 0,
-        my = 0,
-        rx = 0,
-        ry = 0;
-      document.addEventListener("mousemove", (e) => {
-        mx = e.clientX;
-        my = e.clientY;
-        cur.style.left = mx + "px";
-        cur.style.top = my + "px";
-      });
-      (function loop() {
-        rx += (mx - rx) * 0.12;
-        ry += (my - ry) * 0.12;
-        ring.style.left = rx + "px";
-        ring.style.top = ry + "px";
-        requestAnimationFrame(loop);
-      })();
-      document
-        .querySelectorAll(
-          "a,button,.video,.tiktok-wrapper,.skill-tag,.short-card,.brand-tiktok-card,.brand-pill"
-        )
-        .forEach((el) => {
-          el.addEventListener("mouseenter", () => {
-            cur.style.width = "20px";
-            cur.style.height = "20px";
-            ring.style.width = "60px";
-            ring.style.height = "60px";
-          });
-          el.addEventListener("mouseleave", () => {
-            cur.style.width = "12px";
-            cur.style.height = "12px";
-            ring.style.width = "36px";
-            ring.style.height = "36px";
-          });
-        });
-
       // ─── SCROLL PROGRESS ───
       const prog = document.getElementById("scroll-progress");
       const hdr = document.getElementById("site-header");
@@ -2187,6 +2115,7 @@
         buildTrack("sm-reel-1", ["🍒"]);
         buildTrack("sm-reel-2", ["🍒"]);
       })();
+
       // ─── GRAPHIC DESIGN LIGHTBOX ───
       function openLightbox(src) {
         const lb = document.getElementById("gd-lightbox");
