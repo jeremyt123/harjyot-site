@@ -2180,6 +2180,204 @@
         clip-path: inset(100% 0 0 0 round 12px);
       }
 
+      /* ─── JELLY FRUIT SLICE ─── */
+      .jelly-wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 40px 24px 20px;
+      }
+      .jelly-stage {
+        position: relative;
+        height: clamp(380px, 56vw, 580px);
+        background: transparent;
+      }
+      .jelly-stage::after {
+        content: "";
+        position: absolute;
+        left: 22%;
+        right: 22%;
+        bottom: 12%;
+        height: 14%;
+        background: radial-gradient(ellipse at center, rgba(255, 122, 0, 0.22), transparent 70%);
+        pointer-events: none;
+      }
+      .jelly-title {
+        position: absolute;
+        top: 8px;
+        left: 12px;
+        z-index: 2;
+        font-family: Georgia, "Times New Roman", serif;
+        font-style: italic;
+        font-size: clamp(1.8rem, 5vw, 3.4rem);
+        line-height: 1;
+        color: #f1e2cc;
+        pointer-events: none;
+      }
+      .jelly-hint {
+        position: absolute;
+        bottom: 4px;
+        left: 0;
+        right: 0;
+        z-index: 2;
+        text-align: center;
+        font-size: 0.7rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(241, 226, 204, 0.5);
+        pointer-events: none;
+      }
+      #jelly-canvas {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        touch-action: pan-y;
+        cursor: grab;
+        z-index: 1;
+      }
+      .jelly-panel {
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 3;
+        width: 150px;
+        padding: 12px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 122, 0, 0.25);
+        backdrop-filter: blur(6px);
+        font-size: 0.6rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #f1e2cc;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .jelly-sw {
+        display: flex;
+        gap: 8px;
+      }
+      .jelly-sw button {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        cursor: pointer;
+        padding: 0;
+      }
+      .jelly-sw button.on {
+        border-color: #fff;
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+      }
+      .jelly-panel input[type="range"] {
+        width: 100%;
+        accent-color: var(--orange);
+        margin-top: 4px;
+      }
+      .jelly-btn {
+        font: inherit;
+        letter-spacing: inherit;
+        text-transform: inherit;
+        color: #050505;
+        background: #f1e2cc;
+        border: 0;
+        border-radius: 8px;
+        padding: 7px 0;
+        cursor: pointer;
+      }
+      @media (max-width: 640px) {
+        .jelly-panel {
+          top: auto;
+          bottom: 22px;
+          right: 50%;
+          transform: translateX(50%);
+          width: auto;
+          flex-direction: row;
+          align-items: center;
+          gap: 12px;
+        }
+        .jelly-panel input[type="range"] { width: 70px; }
+        .jelly-hint { display: none; }
+      }
+
+      /* ─── PLAYGROUND HUB (glass picker) ─── */
+      .pg-sec { max-width: 1100px; margin: 0 auto; padding: 70px 24px 10px; position: relative; }
+      .pg-sec::before { content: ""; position: absolute; inset: 20px 0 0; z-index: -1;
+        background: radial-gradient(ellipse at 30% 20%, rgba(255,122,0,.18), transparent 55%), radial-gradient(ellipse at 80% 80%, rgba(255,60,0,.12), transparent 50%); }
+      .pg-sub { text-align: center; color: rgba(241,226,204,.6); margin: -20px auto 34px; font-size: .95rem; }
+      .pg-glass { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; padding: 20px; border-radius: 26px;
+        background: rgba(255,255,255,.05); backdrop-filter: blur(18px) saturate(140%); -webkit-backdrop-filter: blur(18px) saturate(140%);
+        border: 1px solid rgba(255,255,255,.14); box-shadow: 0 20px 70px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.22); }
+      .pg-card { text-align: left; cursor: pointer; padding: 0; border-radius: 18px; overflow: hidden; color: #f1e2cc; font: inherit;
+        background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); transition: transform .25s, box-shadow .25s, border-color .25s; }
+      .pg-card:hover, .pg-card:focus-visible { transform: translateY(-6px) scale(1.02); border-color: rgba(255,122,0,.7); box-shadow: 0 14px 40px rgba(255,122,0,.28); outline: none; }
+      .pg-thumb { height: 120px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+      .pg-meta { padding: 12px 14px 15px; }
+      .pg-meta b { display: block; font-size: 1rem; margin-bottom: 3px; }
+      .pg-meta span { font-size: .78rem; opacity: .65; line-height: 1.35; display: block; }
+      .pg-tag { position: absolute; top: 8px; right: 8px; font-size: .55rem; letter-spacing: .14em; padding: 3px 7px; border-radius: 99px; background: rgba(0,0,0,.55); color: #ffb460; text-transform: uppercase; }
+      .t-vista { background: linear-gradient(180deg, #5fb7f5 0 55%, #4c9a2a 55%); }
+      .t-vista i { position: absolute; width: 56%; height: 58%; left: 22%; top: 16%; border-radius: 6px; background: rgba(120,190,255,.55); border: 2px solid rgba(255,255,255,.7); box-shadow: 0 6px 16px rgba(0,0,0,.35); }
+      .t-vista i::after { content: ""; position: absolute; left: 6%; right: 6%; top: 24%; bottom: 8%; background: #eaf3ff; border-radius: 2px; }
+      .t-cube { background: radial-gradient(circle at 50% 100%, rgba(255,122,0,.4), #080808 70%); }
+      .t-cube div { width: 78px; height: 78px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; transform: rotateX(55deg) rotateZ(40deg); }
+      .t-cube div s { border-radius: 4px; }
+      .t-nes { background: linear-gradient(180deg, #5c94fc 0 70%, #c84c0c 70%); image-rendering: pixelated; }
+      .t-nes i { position: absolute; bottom: 30%; left: 24%; width: 16px; height: 22px; background: #e52521; box-shadow: 0 -8px 0 #fcb48c; }
+      .t-nes b { position: absolute; bottom: 30%; right: 20%; width: 30px; height: 30px; background: #00a800; border: 3px solid #005800; border-radius: 3px 3px 0 0; }
+      .t-jelly { background: radial-gradient(circle at 50% 100%, rgba(255,122,0,.35), #080808 70%); }
+      .t-jelly div { width: 100px; height: 52px; border-radius: 100px 100px 0 0; background: radial-gradient(circle at 50% 100%, #ffcc80, #f06800 60%, #e85d00); box-shadow: 0 8px 20px rgba(255,122,0,.5); animation: pgjig 1.8s ease-in-out infinite; transform-origin: 50% 100%; }
+      @keyframes pgjig { 0%,100% { transform: scale(1,1); } 50% { transform: scale(1.08,.9); } }
+      .t-slot { background: linear-gradient(135deg, #2a0a00, #6a1b00); font: 800 2.2rem Orbitron, monospace; color: #ffd24a; text-shadow: 0 0 14px #ff9a00; letter-spacing: .1em; }
+      .pg-overlay { position: fixed; inset: 0; z-index: 99999; background: #050505; display: flex; flex-direction: column; }
+      .pg-overlay[hidden] { display: none; }
+      .pg-bar { flex: none; display: flex; align-items: center; gap: 14px; padding: 10px 16px; background: rgba(20,20,20,.95); border-bottom: 1px solid rgba(255,122,0,.3); }
+      .pg-bar button { cursor: pointer; font: 700 .75rem Inter, sans-serif; letter-spacing: .12em; padding: 8px 14px; border-radius: 99px; border: 1px solid rgba(255,122,0,.6); background: rgba(255,122,0,.12); color: #ffb460; }
+      .pg-bar button:hover { background: rgba(255,122,0,.35); color: #fff; }
+      #pg-title { font: 700 .95rem Orbitron, sans-serif; color: #ff9a1f; letter-spacing: .12em; }
+      #pg-stage { flex: 1; min-height: 0; position: relative; overflow: hidden; }
+      #pg-loader { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: #f1e2cc; z-index: 5; letter-spacing: .2em; font-size: .8rem; text-transform: uppercase; }
+      #pg-loader[hidden] { display: none; }
+
+      /* ─── GLASS AESTHETICS ─── */
+      .glass-orbs { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
+      .glass-orbs i { position: absolute; border-radius: 50%; filter: blur(70px); opacity: .32; will-change: transform; }
+      .glass-orbs i:nth-child(1) { width: 46vmax; height: 46vmax; left: -12vmax; top: 8vh; background: #ff7a00; animation: gorb1 26s ease-in-out infinite alternate; }
+      .glass-orbs i:nth-child(2) { width: 38vmax; height: 38vmax; right: -10vmax; top: 40vh; background: #ff3d00; opacity: .22; animation: gorb2 32s ease-in-out infinite alternate; }
+      .glass-orbs i:nth-child(3) { width: 30vmax; height: 30vmax; left: 35vw; bottom: -14vmax; background: #ffb347; opacity: .18; animation: gorb1 38s ease-in-out infinite alternate-reverse; }
+      @keyframes gorb1 { to { transform: translate(14vmax, 10vmax) scale(1.15); } }
+      @keyframes gorb2 { to { transform: translate(-16vmax, -8vmax) scale(.9); } }
+      header { background: rgba(10, 8, 6, .55) !important; backdrop-filter: blur(22px) saturate(160%) !important; -webkit-backdrop-filter: blur(22px) saturate(160%) !important;
+        box-shadow: inset 0 -1px 0 rgba(255,255,255,.08), 0 8px 30px rgba(0,0,0,.35); }
+      .dropdown { background: rgba(18, 14, 10, .62) !important; backdrop-filter: blur(24px) saturate(170%) !important; -webkit-backdrop-filter: blur(24px) saturate(170%) !important;
+        border: 1px solid rgba(255,255,255,.16) !important; box-shadow: 0 18px 50px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.22) !important; }
+      .stats-strip { background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,122,0,.04)) !important; backdrop-filter: blur(16px) saturate(150%); -webkit-backdrop-filter: blur(16px) saturate(150%);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.14), inset 0 -1px 0 rgba(255,255,255,.05); }
+      .contact-card, .gd-blurb, .hero-box { background: linear-gradient(145deg, rgba(255,255,255,.09), rgba(255,255,255,.02)) !important; backdrop-filter: blur(18px) saturate(160%) !important; -webkit-backdrop-filter: blur(18px) saturate(160%) !important;
+        border: 1px solid rgba(255,255,255,.16) !important; box-shadow: 0 16px 50px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.25) !important; }
+      .contact-card { position: relative; }
+      .glass-spot { position: relative; }
+      .glass-spot::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .3s;
+        background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgba(255,170,80,.22), transparent 65%); }
+      .glass-spot:hover::after { opacity: 1; }
+      .hero-cta { position: relative; overflow: hidden; }
+      .hero-cta::before { content: ""; position: absolute; top: 0; left: -80%; width: 50%; height: 100%; transform: skewX(-20deg); pointer-events: none;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,.35), transparent); transition: left .6s ease; }
+      .hero-cta:hover::before { left: 130%; }
+      @media (prefers-reduced-motion: reduce) { .glass-orbs i { animation: none; } }
+      /* lighter on phones / small screens: fewer live blurs, no animated orbs */
+      @media (max-width: 900px) {
+        .glass-orbs i { animation: none; filter: blur(50px); }
+        .glass-orbs i:nth-child(3) { display: none; }
+        .contact-card, .gd-blurb, .hero-box, .stats-strip { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; }
+        .glass-spot::after { display: none; }
+      }
+      html.pg-open .glass-orbs i { animation-play-state: paused; }
+      html.pg-open, html.pg-open body { overflow: hidden !important; }
+
       @media (prefers-reduced-motion: reduce) {
         *,
         *::before,
@@ -2241,9 +2439,13 @@
               ><span class="dd-icon">◎</span
               ><span class="dd-text">OwnersBox<small>Livestream + campaigns</small></span></a
             >
-            <a href="#slot-machine-wrap"
-              ><span class="dd-icon">7</span
-              ><span class="dd-text">Gold Blitz<small>Play the slot machine</small></span></a
+            <a href="#playground"
+              ><span class="dd-icon">✦</span
+              ><span class="dd-text">Fun<small>Games, cube, Vista desktop</small></span></a
+            >
+            <a href="#playground"
+              ><span class="dd-icon">◐</span
+              ><span class="dd-text">Miscellaneous<small>Jelly slice, slots &amp; more</small></span></a
             >
           </div>
         </div>
@@ -2626,7 +2828,40 @@
       <img id="gd-lightbox-img" src="" alt="Graphic design enlarged" />
     </div>
 
-    <div class="divider"></div>
+        <!-- ─── PLAYGROUND (glass menu) ─── -->
+    <section class="pg-sec reveal" id="playground">
+      <h2 class="section-title">Fun · Interactive Playground</h2>
+      <p class="pg-sub">Pick something to play with.</p>
+      <div class="pg-glass">
+        <button class="pg-card" data-exp="vista"><div class="pg-thumb t-vista"><i></i><span class="pg-tag">Mini OS</span></div><div class="pg-meta"><b>Windows Vista</b><span>A working desktop: Start menu, windows, Paint, Minesweeper, Notepad and more.</span></div></button>
+        <button class="pg-card" data-exp="cube"><div class="pg-thumb t-cube"><div><s style="background:#fff"></s><s style="background:#0a9b48"></s><s style="background:#c4122f"></s><s style="background:#ff5a00"></s><s style="background:#ffd500"></s><s style="background:#0a46ad"></s><s style="background:#0a9b48"></s><s style="background:#fff"></s><s style="background:#c4122f"></s></div><span class="pg-tag">3D</span></div><div class="pg-meta"><b>Rubik's Cube</b><span>Turn real layers, scramble it, time yourself or watch it solve.</span></div></button>
+        <button class="pg-card" data-exp="nes"><div class="pg-thumb t-nes"><i></i><b></b><span class="pg-tag">8-bit</span></div><div class="pg-meta"><b>Pixel Quest</b><span>An NES-style platformer with 3 levels, power-ups and chiptune music.</span></div></button>
+        <button class="pg-card" data-exp="jelly"><div class="pg-thumb t-jelly"><div></div><span class="pg-tag">Click to play</span></div><div class="pg-meta"><b>Citrus Jelly</b><span>Squish the 3D jelly orange slice.</span></div></button>
+        <button class="pg-card" data-exp="arcade"><div class="pg-thumb t-slot">777<span class="pg-tag">Click to play</span></div><div class="pg-meta"><b>The Arcade</b><span>Free-play slot machines, no real money.</span></div></button>
+      </div>
+    </section>
+    <!-- Hidden until opened from the Fun menu: these get moved into the full-screen view on click -->
+    <div id="fun-home" hidden>
+    <!-- ─── JELLY ─── -->
+    <section class="jelly-wrap" id="jelly" aria-label="Interactive 3D jelly fruit slice">
+      <div class="jelly-stage">
+        <p class="jelly-title">Citrus<br />Jelly.</p>
+        <canvas id="jelly-canvas"></canvas>
+        <div class="jelly-panel">
+          <div>Fruit
+            <div class="jelly-sw" style="margin-top: 6px">
+              <button data-fruit="orange" style="background: #ff8a1e" aria-label="Orange"></button>
+              <button data-fruit="grapefruit" style="background: #ee4a3a" aria-label="Grapefruit"></button>
+              <button data-fruit="lemon" style="background: #f5e11d" aria-label="Lemon"></button>
+            </div>
+          </div>
+          <label>Jiggle <input id="jelly-jig" type="range" min="0" max="1" step="0.01" value="0.6" /></label>
+          <button id="jelly-reset" class="jelly-btn">Reset</button>
+        </div>
+        <p class="jelly-hint">Drag it to squish · let go to watch it wobble</p>
+      </div>
+    </section>
+
 
     <!-- ─── SLOT MACHINE ─── -->
     <div id="slot-machine-wrap">
@@ -2686,6 +2921,8 @@
         </div>
       </div>
       <div class="sm-machine" id="slot-leap"></div>
+    </div>
+
     </div>
 
     <!-- ─── CONTACT ─── -->
@@ -3103,7 +3340,9 @@
 
         arcadeBetControls(st, q(".bb-down"), q(".bb-up"), render);
         q(".bb-spin").addEventListener("click", async () => {
-          if (st.busy || st.credits < st.bet) return;
+          if (st.busy) return;
+          if (st.credits < 1) st.credits = 100;
+          if (st.credits < st.bet) { st.bet = Math.max(1, Math.floor(st.credits)); render(); } // bet too big: lower it instead of silently doing nothing
           st.busy = true;
           q(".bb-spin").disabled = true;
           root.querySelectorAll(".bb-jp.hit").forEach((el) => el.classList.remove("hit"));
@@ -3247,7 +3486,8 @@
         q(".lp-go").addEventListener("click", () => {
           if (st.busy) return;
           if (!st.playing) {
-            if (st.credits < st.bet) return;
+            if (st.credits < 1) st.credits = 100;
+            if (st.credits < st.bet) { st.bet = Math.max(1, Math.floor(st.credits)); render(); }
             reset();
             st.credits -= st.bet;
             st.stake = st.bet;
@@ -3649,5 +3889,200 @@
         window.addEventListener("load", () => ScrollTrigger.refresh());
       }
     </script>
-  </body>
+  
+    <script>
+      /* 3D jelly fruit slice (Three.js): spring-driven jelly physics, drag to squish, pick a fruit */
+      window.initJelly = function () {
+        if (window.__jj) return; window.__jj = 1; // runs the first time the jelly is opened
+        const wrap = document.getElementById("jelly");
+        const canvas = document.getElementById("jelly-canvas");
+        if (!wrap || !canvas) return;
+        if (!window.THREE) { wrap.style.display = "none"; return; }
+        let renderer;
+        try {
+          renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+        } catch (e) { wrap.style.display = "none"; return; }
+        const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+        renderer.setClearColor(0x000000, 0);
+
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 50);
+        camera.position.set(0, 0.4, 9.5);
+        camera.lookAt(0, 0, 0);
+        scene.add(new THREE.AmbientLight(0xfff1dd, 0.45));
+        const key = new THREE.DirectionalLight(0xffffff, 0.7);
+        key.position.set(-3, 6, 5);
+        scene.add(key);
+        const rim = new THREE.PointLight(0xffb347, 0.5, 20);
+        rim.position.set(3, -1, 4);
+        scene.add(rim);
+
+        const R = 2.2;
+        const group = new THREE.Group();
+        scene.add(group);
+        const meshes = [];
+
+        function halfDisc(r) {
+          const s = new THREE.Shape();
+          s.absarc(0, 0, r, 0, Math.PI, false);
+          s.lineTo(r, 0);
+          return s;
+        }
+        function wedge(a0, a1, r0, r1) {
+          const s = new THREE.Shape();
+          s.moveTo(r0 * Math.cos(a0), r0 * Math.sin(a0));
+          s.lineTo(r1 * Math.cos(a0), r1 * Math.sin(a0));
+          s.absarc(0, 0, r1, a0, a1, false);
+          s.lineTo(r0 * Math.cos(a1), r0 * Math.sin(a1));
+          s.absarc(0, 0, r0, a1, a0, true);
+          return s;
+        }
+        function add(shape, depth, bevel, curve, material, z) {
+          const geo = new THREE.ExtrudeGeometry(shape, {
+            depth, curveSegments: curve, bevelEnabled: true,
+            bevelThickness: bevel, bevelSize: bevel, bevelSegments: 3,
+          });
+          geo.computeVertexNormals();
+          const mesh = new THREE.Mesh(geo, material);
+          mesh.position.z = z;
+          group.add(mesh);
+          meshes.push({ geo, base: geo.attributes.position.array.slice() });
+        }
+
+        const rindMat = new THREE.MeshPhysicalMaterial({ roughness: 0.28, clearcoat: 1, clearcoatRoughness: 0.15 });
+        const pithMat = new THREE.MeshPhysicalMaterial({ roughness: 0.4, clearcoat: 0.6 });
+        const fleshMat = new THREE.MeshPhysicalMaterial({
+          emissiveIntensity: 0.3, roughness: 0.12, clearcoat: 1, clearcoatRoughness: 0.05,
+          transparent: true, opacity: 0.93,
+        });
+        const fruits = {
+          orange: { rind: 0xe85d00, pith: 0xf3dcb0, flesh: 0xf06800, emis: 0xc03a00 },
+          grapefruit: { rind: 0xf08a4a, pith: 0xf8e2d6, flesh: 0xe8412f, emis: 0xa01818 },
+          lemon: { rind: 0xe8c812, pith: 0xfff6c0, flesh: 0xf5dc1c, emis: 0xb89a00 },
+        };
+        function setFruit(name) {
+          const f = fruits[name] || fruits.orange;
+          rindMat.color.setHex(f.rind);
+          pithMat.color.setHex(f.pith);
+          fleshMat.color.setHex(f.flesh);
+          fleshMat.emissive.setHex(f.emis);
+          document.querySelectorAll("#jelly [data-fruit]").forEach((b) =>
+            b.classList.toggle("on", b.dataset.fruit === name));
+        }
+        setFruit("orange");
+
+        add(halfDisc(R), 0.55, 0.1, 40, rindMat, -0.3);
+        add(halfDisc(R - 0.14), 0.6, 0.06, 40, pithMat, -0.3);
+        const N = 7, gap = 0.05;
+        for (let i = 0; i < N; i++) {
+          const a0 = (i / N) * Math.PI + gap, a1 = ((i + 1) / N) * Math.PI - gap;
+          add(wedge(a0, a1, 0.16, R - 0.38), 0.55, 0.07, 14, fleshMat, -0.22);
+        }
+
+        // Spring state. Dragging moves the spring's rest point, so letting go makes it bounce back like jelly.
+        const st = { sx: 0, sy: 0, vx: 0, vy: 0, hx: 0, hy: 0, wob: 0.15, rx: 0, ry: 0, tx: 0, ty: 0, px: null, py: 0 };
+        let jig = 0.6, dragging = false, drag0 = null;
+        let last = null, visible = true, t = 0;
+
+        function norm(e) {
+          const r = canvas.getBoundingClientRect();
+          return [((e.clientX - r.left) / r.width) * 2 - 1, ((e.clientY - r.top) / r.height) * 2 - 1];
+        }
+        function poke(ix, iy, e) {
+          st.vx += ix; st.vy += iy;
+          st.wob = Math.min(1, st.wob + e);
+        }
+        canvas.addEventListener("pointermove", (e) => {
+          const [x, y] = norm(e);
+          if (dragging && drag0) {
+            st.hx = Math.max(-2.2, Math.min(2.2, (x - drag0[0]) * 3.2));
+            st.hy = Math.max(-2.2, Math.min(2.2, -(y - drag0[1]) * 3.2));
+            st.wob = Math.min(1, st.wob + 0.05);
+          } else if (st.px !== null) {
+            poke((x - st.px) * 7, -(y - st.py) * 7, Math.hypot(x - st.px, y - st.py) * 3);
+          }
+          st.px = x; st.py = y; st.tx = x; st.ty = y;
+        });
+        canvas.addEventListener("pointerleave", () => { if (!dragging) { st.px = null; st.tx = 0; st.ty = 0; } });
+        canvas.addEventListener("pointerdown", (e) => {
+          dragging = true; drag0 = norm(e); canvas.style.cursor = "grabbing";
+          try { canvas.setPointerCapture(e.pointerId); } catch (err) {}
+          poke(0, -3, 0.5);
+        });
+        function release() {
+          if (!dragging) return;
+          dragging = false; drag0 = null; st.hx = 0; st.hy = 0; canvas.style.cursor = "grab";
+          st.wob = 1;
+        }
+        window.addEventListener("pointerup", release);
+        window.addEventListener("pointercancel", release);
+
+        document.querySelectorAll("#jelly [data-fruit]").forEach((b) =>
+          b.addEventListener("click", () => { setFruit(b.dataset.fruit); poke(0, 4, 0.9); }));
+        const slider = document.getElementById("jelly-jig");
+        if (slider) slider.addEventListener("input", () => { jig = parseFloat(slider.value); });
+        const reset = document.getElementById("jelly-reset");
+        if (reset) reset.addEventListener("click", () => {
+          setFruit("orange"); st.sx = st.sy = st.vx = st.vy = 0; poke(0, 6, 1);
+        });
+
+        function resize() {
+          const w = canvas.clientWidth, h = canvas.clientHeight;
+          if (!w || !h) return;
+          renderer.setSize(w, h, false);
+          camera.aspect = w / h;
+          camera.position.z = w / h < 1 ? 13 : 9.5;
+          camera.updateProjectionMatrix();
+        }
+        window.addEventListener("resize", resize);
+        resize();
+
+        function frame(now) {
+          requestAnimationFrame(frame);
+          if (!visible) { last = null; return; }
+          const dt = Math.min(0.033, last ? (now - last) / 1000 : 0.016);
+          last = now; t += dt;
+          const kS = 70 - jig * 28, cD = 7 - jig * 4.5; // looser + bouncier as Jiggle goes up
+          st.vx += (kS * (st.hx - st.sx) - cD * st.vx) * dt;
+          st.vy += (kS * (st.hy - st.sy) - cD * st.vy) * dt;
+          st.sx += st.vx * dt; st.sy += st.vy * dt;
+          const target = dragging ? 0.8 : Math.max(0.12, Math.min(1, Math.hypot(st.vx, st.vy) * 0.25));
+          st.wob += (target - st.wob) * Math.min(1, dt * 2.2);
+          st.ry += ((st.tx * 0.4) - st.ry) * Math.min(1, dt * 4);
+          st.rx += ((st.ty * 0.2) - st.rx) * Math.min(1, dt * 4);
+          // lying flat, seen from above at an angle
+          group.rotation.set(-0.85 + st.rx, 0.3 + st.ry + Math.sin(t * 0.6) * 0.1, st.sx * 0.06);
+          group.position.y = -0.2 + Math.sin(t * 1.2) * 0.06;
+          group.scale.set(1 + Math.abs(st.sy) * 0.03, 1 - Math.abs(st.sx) * 0.04, 1 - Math.hypot(st.sx, st.sy) * 0.05);
+          const sx = st.sx, sy = st.sy, w = st.wob * (0.3 + jig * 1.3);
+          for (const m of meshes) {
+            const p = m.geo.attributes.position, b = m.base, a = p.array;
+            for (let i = 0; i < a.length; i += 3) {
+              const x = b[i], y = b[i + 1], z = b[i + 2];
+              const k = (y + 0.2) / R;
+              a[i] = x + sx * k * 0.28 + w * 0.05 * Math.sin(t * 11 + y * 3.1 + z * 2);
+              a[i + 1] = y + sy * k * 0.2 + w * 0.05 * Math.sin(t * 13 + x * 2.7);
+              // fold/bend the slice as it's dragged, plus a ripple through its thickness
+              a[i + 2] = z + sx * x * 0.12 + sy * (y - 0.8) * 0.12 + w * 0.09 * Math.sin(t * 9 + x * 2.3 + y * 1.9);
+            }
+            p.needsUpdate = true;
+          }
+          renderer.render(scene, camera);
+        }
+        if ("IntersectionObserver" in window) {
+          new IntersectionObserver((es) => { visible = es[0].isIntersecting; }, { threshold: 0 }).observe(canvas);
+        }
+        if (still) { st.wob = 0; frame(performance.now()); visible = false; }
+        else requestAnimationFrame(frame);
+      };
+    </script>
+  <div class="glass-orbs" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="pg-overlay" id="pg-overlay" hidden>
+      <div class="pg-bar"><button id="pg-back">← BACK TO PORTFOLIO</button><span id="pg-title"></span></div>
+      <div id="pg-stage" data-lenis-prevent></div>
+      <div id="pg-loader" hidden></div>
+    </div>
+    <script src="play-hub.js?v=3"></script>
+</body>
 </html>
