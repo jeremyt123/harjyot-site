@@ -3711,9 +3711,11 @@
         );
         function loadThumb(el) {
           const id = el.dataset.id;
-          // TikTok's public oEmbed doesn't return thumbnails, so TikToks keep the styled placeholder
+          // TikTok has no thumbnail API, so its player loads as soon as it nears the screen; YouTube stays tap-to-play
           if (el.classList.contains("yt")) {
             el.style.backgroundImage = `url(https://i.ytimg.com/vi/${id}/hqdefault.jpg)`;
+          } else if (el.classList.contains("tt")) {
+            play(el);
           }
         }
         function play(el) {
